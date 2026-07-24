@@ -222,8 +222,30 @@ const DEFAULT_ADMINS = [
 ];
 const LEAD_PIN = '5000'; // Team Lead overview access code
 
+function getModeFromUrl(){
+  try{
+    const params = new URLSearchParams(window.location.search);
+    let v = params.get('view');
+    if(!v && window.location.hash){ v = window.location.hash.replace('#',''); }
+    if(v){
+      v = v.trim().toLowerCase();
+      if(v === 'admin' || v === 'instructor' || v === 'lead') return v;
+    }
+  }catch(e){}
+  return null;
+}
+
+function setUrlForMode(mode){
+  try{
+    const url = new URL(window.location.href);
+    url.searchParams.set('view', mode);
+    url.hash = '';
+    window.history.replaceState(null, '', url.toString());
+  }catch(e){}
+}
+
 let state = {
-  mode: 'instructor', // 'admin' | 'instructor' | 'lead'
+  mode: getModeFromUrl() || 'instructor', // 'admin' | 'instructor' | 'lead'
   adminUnlocked: false,
   currentAdminName: null,
   leadUnlocked: false,
@@ -436,6 +458,7 @@ function renderHeader(){
       <button data-mode="instructor" class="${state.mode==='instructor'?'active':''}">Instructor view</button>
       <button data-mode="admin" class="${state.mode==='admin'?'active':''}">Admin view</button>
       <button data-mode="lead" class="${state.mode==='lead'?'active':''}">Team Lead view</button>
+      <button id="copyLinkBtn" class="btn-ghost" style="border:1px solid var(--line); border-radius:8px; padding:8px 12px; font-size:12.5px; font-weight:600;" title="Copy a direct link to this view">🔗 Copy link</button>
     </div>
     ${state.mode==='admin' && state.adminUnlocked ? `
     <div class="whoami"><span class="dot"></span> Signed in as <b>${escapeHtml(state.currentAdminName)}</b>
@@ -448,12 +471,37 @@ function renderHeader(){
 
 function attachHeaderEvents(){
   document.querySelectorAll('.mode-switch button').forEach(btn=>{
-    btn.onclick = ()=>{ state.mode = btn.dataset.mode; render(); };
+    if(!btn.dataset.mode) return;
+    btn.onclick = ()=>{ state.mode = btn.dataset.mode; setUrlForMode(state.mode); render(); };
   });
   const signOut = document.getElementById('signOutBtn');
   if(signOut) signOut.onclick = ()=>{ state.adminUnlocked=false; state.currentAdminName=null; render(); };
   const leadSignOut = document.getElementById('leadSignOutBtn');
   if(leadSignOut) leadSignOut.onclick = ()=>{ state.leadUnlocked=false; render(); };
+
+  const copyLinkBtn = document.getElementById('copyLinkBtn');
+  if(copyLinkBtn) copyLinkBtn.onclick = async ()=>{
+    let link = '';
+    try{
+      const url = new URL(window.location.href);
+      url.searchParams.set('view', state.mode);
+      url.hash = '';
+      link = url.toString();
+    }catch(e){
+      link = window.location.href;
+    }
+    try{
+      await navigator.clipboard.writeText(link);
+      showToast('Link copied — opens straight into this view');
+    }catch(e){
+      const ta = document.createElement('textarea');
+      ta.value = link; ta.style.position='fixed'; ta.style.opacity='0';
+      document.body.appendChild(ta); ta.select();
+      try{ document.execCommand('copy'); showToast('Link copied — opens straight into this view'); }
+      catch(err){ showToast('Could not copy — copy it from the address bar'); }
+      document.body.removeChild(ta);
+    }
+  };
 }
 
 function renderPinOverlay(){
