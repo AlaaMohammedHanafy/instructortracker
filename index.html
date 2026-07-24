@@ -201,6 +201,11 @@
   .team-block .team-head{ display:flex; justify-content:space-between; align-items:center; margin-bottom:10px; }
   .team-block .team-head .tname{ font-weight:700; font-size:14px; color:var(--purple); }
   .team-block .team-head .tlead{ font-size:11.5px; color:var(--muted); }
+  .share-links{ display:flex; gap:18px; flex-wrap:wrap; }
+  .share-links .link-col{ flex:1; min-width:220px; display:flex; flex-direction:column; gap:8px; }
+  .share-links .link-col label{ margin-bottom:0; }
+  .share-links input[type=text]{ background:#fff; font-size:12.5px; color:var(--muted); cursor:text; }
+  .share-links .copy-btn{ align-self:center; width:100%; max-width:170px; }
   @media (max-width:600px){ header.top{flex-direction:column; align-items:flex-start;} }
 </style>
 </head>
@@ -222,8 +227,18 @@ const DEFAULT_ADMINS = [
 ];
 const LEAD_PIN = '5000'; // Team Lead overview access code
 
+function getLockedModeFromURL(){
+  try{
+    const params = new URLSearchParams(window.location.search);
+    const v = (params.get('view') || '').toLowerCase();
+    if(v === 'admin' || v === 'lead' || v === 'instructor') return v;
+  }catch(e){}
+  return null;
+}
+const LOCKED_MODE = getLockedModeFromURL();
+
 let state = {
-  mode: 'instructor', // 'admin' | 'instructor' | 'lead'
+  mode: LOCKED_MODE || 'instructor', // 'admin' | 'instructor' | 'lead'
   adminUnlocked: false,
   currentAdminName: null,
   leadUnlocked: false,
@@ -432,11 +447,12 @@ function renderHeader(){
         <div class="sub">Demi Summer 2026 · weekly notes and updates</div>
       </div>
     </div>
+    ${LOCKED_MODE ? '' : `
     <div class="mode-switch">
       <button data-mode="instructor" class="${state.mode==='instructor'?'active':''}">Instructor view</button>
       <button data-mode="admin" class="${state.mode==='admin'?'active':''}">Admin view</button>
       <button data-mode="lead" class="${state.mode==='lead'?'active':''}">Team Lead view</button>
-    </div>
+    </div>`}
     ${state.mode==='admin' && state.adminUnlocked ? `
     <div class="whoami"><span class="dot"></span> Signed in as <b>${escapeHtml(state.currentAdminName)}</b>
       <button id="signOutBtn">Sign out</button></div>` : ''}
@@ -511,6 +527,47 @@ function attachLeadPinEvents(){
 }
 
 // ---------- ADMIN MODE ----------
+function baseAppUrl(){
+  return window.location.origin + window.location.pathname;
+}
+
+function renderShareLinksPanel(){
+  const base = baseAppUrl();
+  const links = [
+    { label: 'Instructor link (national ID lookup, no login)', id: 'linkInstructor', url: `${base}?view=instructor` },
+    { label: 'Team leader link (read-only summary for this team — needs a team login)', id: 'linkAdmin', url: `${base}?view=admin` },
+    { label: 'Overall leader link (read-only — sees every team, needs the leader login)', id: 'linkLead', url: `${base}?view=lead` },
+  ];
+  return `
+  <div class="panel">
+    <h2><span class="eyebrow purple">Links</span> Dedicated links to share</h2>
+    <div class="share-links">
+      ${links.map(l => `
+      <div class="link-col">
+        <label>${l.label}</label>
+        <input type="text" id="${l.id}" value="${escapeHtml(l.url)}" readonly>
+        <button class="btn btn-ghost copy-btn" data-copy="${l.id}">Copy</button>
+      </div>`).join('')}
+    </div>
+  </div>`;
+}
+
+function attachShareLinksEvents(){
+  document.querySelectorAll('[data-copy]').forEach(btn=>{
+    btn.onclick = async ()=>{
+      const input = document.getElementById(btn.dataset.copy);
+      if(!input) return;
+      try{
+        await navigator.clipboard.writeText(input.value);
+      }catch(e){
+        input.select();
+        try{ document.execCommand('copy'); }catch(e2){}
+      }
+      showToast('Link copied');
+    };
+  });
+}
+
 function renderAdmin(){
   if(!state.adminUnlocked) return '<div style="min-height:200px"></div>';
   const myTeam = (state.data.admins.find(a=>a.name === state.currentAdminName)||{}).team || '';
@@ -518,6 +575,7 @@ function renderAdmin(){
   const selected = instructors.find(i=>i.id === state.selectedInstructorId) || null;
 
   return `
+  ${state.currentAdminName === 'Alaa' ? renderShareLinksPanel() : ''}
   <div class="panel">
     <h2><span class="eyebrow">Team</span> Manage admins</h2>
     <div class="admin-list">
@@ -774,6 +832,7 @@ function renderTeamSummary(instructors){
 }
 
 function attachAdminEvents(){
+  attachShareLinksEvents();
   const addAdminBtn = document.getElementById('addAdminBtn');
   if(addAdminBtn) addAdminBtn.onclick = handleAddAdmin;
 
