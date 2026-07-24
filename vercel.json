@@ -1,9 +1,8 @@
 {
   "rewrites": [
-    { "source": "/", "destination": "/instructor-dashboard.html" },
-    { "source": "/instructor", "destination": "/instructor-dashboard.html?view=instructor" },
-    { "source": "/admin", "destination": "/instructor-dashboard.html?view=admin" },
-    { "source": "/lead", "destination": "/instructor-dashboard.html?view=lead" },
-    { "source": "/team-lead", "destination": "/instructor-dashboard.html?view=lead" }
+    { "source": "/instructor", "destination": "/index.html?view=instructor" },
+    { "source": "/admin", "destination": "/index.html?view=admin" },
+    { "source": "/lead", "destination": "/index.html?view=lead" },
+    { "source": "/team-lead", "destination": "/index.html?view=lead" }
   ]
 }
