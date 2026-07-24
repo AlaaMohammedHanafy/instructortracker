@@ -11,10 +11,9 @@
     --bg: #F5F6F9;
     --panel: #FFFFFF;
     --ink: #1F2937;
-    --blue: #2E5BFF;
-    --blue-deep: #1E42D6;
+    --blue: #3B5BDB;
+    --blue-deep: #2A45B0;
     --blue-soft: #EEF1FE;
-    --brand-orange: #F5A623;
     --line: #E5E7EB;
     --muted: #6B7280;
     --good: #16A34A;
@@ -25,183 +24,331 @@
     --low-bg: #FEE2E2;
     --good2: #0EA5A5;
     --good2-bg: #E0F7F7;
-    --star: #F5A623;
-    --purple: #7C4DFF;
-    --purple-soft: #F1ECFF;
-    --amber-panel: #FFF8EC;
-    --amber-line: #F0DDB0;
   }
   *{box-sizing:border-box;}
   body{
-    margin:0; background:var(--bg); color:var(--ink);
-    font-family:'Inter', -apple-system, sans-serif; min-height:100vh; font-size:14px;
+    margin:0;
+    background:var(--bg);
+    color:var(--ink);
+    font-family:'Inter', -apple-system, sans-serif;
+    min-height:100vh;
+    font-size:14px;
   }
-  .wrap{ max-width:1000px; margin:0 auto; padding:24px 20px 60px; }
+  .wrap{
+    max-width:1000px;
+    margin:0 auto;
+    padding:24px 20px 60px;
+  }
   header.top{
-    display:flex; justify-content:space-between; align-items:center; gap:16px;
-    background:var(--panel); border:1px solid var(--line); border-radius:12px;
-    padding:14px 20px; margin-bottom:20px; flex-wrap:wrap;
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    gap:16px;
+    background:var(--panel);
+    border:1px solid var(--line);
+    border-radius:12px;
+    padding:14px 20px;
+    margin-bottom:20px;
+    flex-wrap:wrap;
   }
-  header.top .brand-row{ display:flex; align-items:center; gap:14px; }
-  .brand-logo{ display:flex; align-items:center; flex-shrink:0; }
-  .brand-logo .brand-img{ height:30px; width:auto; display:block; }
-  .brand-divider{ width:1px; align-self:stretch; background:var(--line); margin:2px 0; }
-  header.top .title-block{ display:flex; flex-direction:column; gap:2px; }
-  header.top h1{ margin:0; font-size:18px; font-weight:700; color:var(--ink); }
-  header.top .sub{ color:var(--muted); font-size:12.5px; }
-  .mode-switch{ display:flex; gap:4px; flex-wrap:wrap; }
+  header.top .title-block{
+    display:flex;
+    flex-direction:column;
+    gap:2px;
+  }
+  header.top h1{
+    margin:0;
+    font-size:18px;
+    font-weight:700;
+    color:var(--ink);
+  }
+  header.top .sub{
+    color:var(--muted);
+    font-size:12.5px;
+  }
+  .mode-switch{
+    display:flex;
+    gap:4px;
+  }
   .mode-switch button{
-    border:none; background:transparent; padding:8px 14px; border-radius:8px;
-    font-family:'Inter'; font-size:13px; font-weight:600; color:var(--muted);
-    cursor:pointer; transition:.15s; position:relative;
+    border:none;
+    background:transparent;
+    padding:8px 16px;
+    border-radius:8px;
+    font-family:'Inter';
+    font-size:13.5px;
+    font-weight:600;
+    color:var(--muted);
+    cursor:pointer;
+    transition:.15s;
+    position:relative;
   }
-  .mode-switch button.active{ color:var(--blue); background:var(--blue-soft); }
-  .whoami{ font-size:12px; color:var(--muted); display:flex; align-items:center; gap:8px; }
-  .whoami .dot{ width:7px;height:7px;border-radius:50%;background:var(--good);display:inline-block; }
-  .whoami button{ border:none;background:none;color:var(--blue);cursor:pointer;font-size:12px;font-weight:600;padding:0; }
+  .mode-switch button.active{
+    color:var(--blue);
+    background:var(--blue-soft);
+  }
+  .whoami{
+    font-size:12px;
+    color:var(--muted);
+    display:flex;
+    align-items:center;
+    gap:8px;
+  }
+  .whoami .dot{
+    width:7px;height:7px;border-radius:50%;background:var(--good);display:inline-block;
+  }
+  .whoami button{
+    border:none;background:none;color:var(--blue);cursor:pointer;font-size:12px;font-weight:600;padding:0;
+  }
   .panel{
-    background:var(--panel); border:1px solid var(--line); border-radius:12px;
-    padding:20px; margin-bottom:16px;
+    background:var(--panel);
+    border:1px solid var(--line);
+    border-radius:12px;
+    padding:20px;
+    margin-bottom:16px;
   }
   .panel h2{
-    font-size:14.5px; color:var(--ink); margin:0 0 14px; display:flex;
-    align-items:center; gap:8px; font-weight:700;
+    font-size:14.5px;
+    color:var(--ink);
+    margin:0 0 14px;
+    display:flex;
+    align-items:center;
+    gap:8px;
+    font-weight:700;
   }
   .panel h2 .eyebrow{
-    font-size:10.5px; background:var(--blue-soft); color:var(--blue-deep);
-    padding:3px 9px; border-radius:999px; font-weight:700; letter-spacing:.02em; text-transform:uppercase;
+    font-size:10.5px;
+    background:var(--blue-soft);
+    color:var(--blue-deep);
+    padding:3px 9px;
+    border-radius:999px;
+    font-weight:700;
+    letter-spacing:.02em;
+    text-transform:uppercase;
   }
-  .panel h2 .eyebrow.purple{ background:var(--purple-soft); color:var(--purple); }
-  .panel h2 .eyebrow.amber{ background:#FBEFDC; color:#8A5B12; }
-  label{ font-size:12px; color:var(--muted); display:block; margin-bottom:5px; font-weight:600; }
+  label{
+    font-size:12px;
+    color:var(--muted);
+    display:block;
+    margin-bottom:5px;
+    font-weight:600;
+  }
   input[type=text], input[type=date], input[type=password], textarea, select{
-    width:100%; border:1px solid var(--line); border-radius:8px; padding:9px 12px;
-    font-family:'Inter'; font-size:13.5px; background:#FAFAFB; color:var(--ink);
+    width:100%;
+    border:1px solid var(--line);
+    border-radius:8px;
+    padding:9px 12px;
+    font-family:'Inter';
+    font-size:13.5px;
+    background:#FAFAFB;
+    color:var(--ink);
   }
-  select[multiple]{ min-height:110px; }
-  textarea{resize:vertical;min-height:64px;}
-  input:focus, textarea:focus, select:focus{ outline:2px solid var(--blue); outline-offset:1px; background:#fff; }
+  textarea{resize:vertical;min-height:76px;}
+  input:focus, textarea:focus, select:focus{
+    outline:2px solid var(--blue);
+    outline-offset:1px;
+    background:#fff;
+  }
   .row{display:flex; gap:12px; flex-wrap:wrap;}
   .row > *{flex:1; min-width:150px;}
   .btn{
-    border:none; border-radius:8px; padding:9px 16px; font-family:'Inter';
-    font-weight:600; font-size:13.5px; cursor:pointer; transition:.15s;
+    border:none;
+    border-radius:8px;
+    padding:9px 16px;
+    font-family:'Inter';
+    font-weight:600;
+    font-size:13.5px;
+    cursor:pointer;
+    transition:.15s;
   }
   .btn-primary{background:var(--blue); color:#fff;}
   .btn-primary:hover{background:var(--blue-deep);}
   .btn-ghost{background:#fff; color:var(--blue); border:1px solid var(--line);}
   .btn-ghost:hover{background:var(--blue-soft);}
   .btn-danger{background:transparent; color:var(--low); border:1px solid var(--low-bg); padding:4px 10px; font-size:11.5px;}
-  .file-drop{
-    border:1.5px dashed var(--line); border-radius:10px; padding:18px; text-align:center;
-    background:#FAFAFB; color:var(--muted); font-size:13px; cursor:pointer;
+  .roster{
+    display:flex;
+    flex-wrap:wrap;
+    gap:8px;
+    margin-top:10px;
   }
-  .file-drop:hover{ border-color:var(--blue); color:var(--blue); }
-  .file-drop input{ display:none; }
-  .file-name{ font-size:12px; color:var(--blue-deep); margin-top:8px; font-weight:600; }
-
-  .roster{ display:flex; flex-direction:column; gap:6px; margin-top:10px; }
-  .roster-row{
-    display:flex; align-items:center; justify-content:space-between;
-    border:1px solid var(--line); background:#FAFAFB; border-radius:8px;
-    padding:10px 14px; cursor:pointer; transition:.12s;
+  .chip{
+    border:1px solid var(--line);
+    background:#FAFAFB;
+    padding:6px 13px;
+    border-radius:999px;
+    font-size:12.5px;
+    cursor:pointer;
+    display:flex;
+    align-items:center;
+    gap:6px;
   }
-  .roster-row:hover{ background:var(--blue-soft); }
-  .roster-row.selected{ background:var(--blue-soft); border-color:var(--blue); }
-  .roster-row .left{ display:flex; align-items:center; gap:10px; }
-  .avatar{
-    width:28px; height:28px; border-radius:50%; background:var(--blue);
-    color:#fff; font-size:12px; font-weight:700; display:flex; align-items:center;
-    justify-content:center; flex-shrink:0;
+  .chip.selected{
+    background:var(--blue);
+    color:#fff;
+    border-color:var(--blue);
   }
-  .roster-row .name{ font-weight:600; font-size:13.5px; }
-  .roster-row .chevron{ color:var(--muted); font-size:12px; }
-  .roster-row .count-pill{
-    font-size:11px; color:var(--muted); background:#fff; border:1px solid var(--line);
-    padding:2px 8px; border-radius:999px;
+  .chip .nid{
+    font-family:'SFMono-Regular',Consolas,monospace;
+    font-size:10.5px;
+    opacity:.7;
   }
-  .empty{ color:var(--muted); font-size:13px; padding:14px 0; text-align:center; }
-
+  .empty{
+    color:var(--muted);
+    font-size:13px;
+    padding:14px 0;
+    text-align:center;
+  }
   .ticket{
-    position:relative; display:flex; border:1px solid var(--line); border-radius:8px;
-    overflow:hidden; margin-bottom:10px; background:#FCFCFD;
+    position:relative;
+    display:flex;
+    border:1px solid var(--line);
+    border-radius:8px;
+    overflow:hidden;
+    margin-bottom:10px;
+    background:#FCFCFD;
   }
-  .ticket .stub{ width:5px; flex-shrink:0; }
+  .ticket .stub{
+    width:5px;
+    flex-shrink:0;
+  }
   .ticket .stub.perf-excellent{background:var(--good);}
   .ticket .stub.perf-good{background:var(--good2);}
   .ticket .stub.perf-mid{background:var(--mid);}
   .ticket .stub.perf-low{background:var(--low);}
-  .ticket .body{ padding:11px 15px; flex:1; }
-  .ticket .meta{
-    display:flex; justify-content:space-between; align-items:center; font-size:11.5px;
-    color:var(--muted); border-bottom:1px dashed var(--line); padding-bottom:7px;
-    margin-bottom:7px; flex-wrap:wrap; gap:6px;
+  .ticket .body{
+    padding:11px 15px;
+    flex:1;
   }
-  .ticket .meta .badge{ font-weight:700; font-size:11px; padding:2px 9px; border-radius:999px; }
+  .ticket .meta{
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    font-size:11.5px;
+    color:var(--muted);
+    border-bottom:1px dashed var(--line);
+    padding-bottom:7px;
+    margin-bottom:7px;
+    flex-wrap:wrap;
+    gap:6px;
+  }
+  .ticket .meta .badge{
+    font-weight:700;
+    font-size:11px;
+    padding:2px 9px;
+    border-radius:999px;
+  }
   .badge.perf-excellent{background:var(--good-bg); color:var(--good);}
   .badge.perf-good{background:var(--good2-bg); color:var(--good2);}
   .badge.perf-mid{background:var(--mid-bg); color:var(--mid);}
   .badge.perf-low{background:var(--low-bg); color:var(--low);}
-  .ticket .tags{ display:flex; flex-wrap:wrap; gap:5px; margin:7px 0; }
-  .ticket .tag{
-    font-size:11px; background:var(--mid-bg); color:#8A5B12; padding:2px 9px;
-    border-radius:999px; font-weight:600;
+  .ticket .comment{
+    font-size:13.5px;
+    line-height:1.6;
   }
-  .note-block{ font-size:13px; line-height:1.6; padding:9px 11px; border-radius:8px; margin-top:7px; }
-  .note-block.quality{ background:var(--amber-panel); border:1px solid var(--amber-line); }
-  .note-block.quality .tag-label{ color:#8A5B12; }
-  .note-block.instructor{ background:var(--blue-soft); border:1px solid #C9D4F9; }
-  .note-block.instructor .tag-label{ color:var(--blue-deep); }
-  .note-block .tag-label{ font-size:10.5px; font-weight:700; text-transform:uppercase; letter-spacing:.03em; display:block; margin-bottom:3px; }
-  .ticket .added-by{ font-size:11px; color:var(--muted); margin-top:8px; }
-  .ticket .row-actions{ margin-top:8px; text-align:right; }
-
-  .stars{ display:inline-flex; gap:3px; }
-  .stars .star{ font-size:22px; color:var(--line); line-height:1; }
-  .stars .star.filled{ color:var(--star); }
-  .stars.input .star{ cursor:pointer; }
-  .stars.small .star{ font-size:15px; }
-
-  table.summary{ width:100%; border-collapse:collapse; font-size:12.5px; }
-  table.summary th, table.summary td{ padding:9px 10px; border-bottom:1px solid var(--line); text-align:left; }
-  table.summary th{ color:var(--muted); font-weight:700; font-size:11px; text-transform:uppercase; letter-spacing:.02em; }
+  .ticket .added-by{
+    font-size:11px;
+    color:var(--muted);
+    margin-top:6px;
+  }
+  .ticket .row-actions{
+    margin-top:8px;
+    text-align:right;
+  }
+  table.summary{
+    width:100%;
+    border-collapse:collapse;
+    font-size:12.5px;
+  }
+  table.summary th, table.summary td{
+    padding:9px 10px;
+    border-bottom:1px solid var(--line);
+    text-align:left;
+  }
+  table.summary th{
+    color:var(--muted);
+    font-weight:700;
+    font-size:11px;
+    text-transform:uppercase;
+    letter-spacing:.02em;
+  }
   .status-pill{
-    display:inline-block; background:var(--good-bg); color:var(--good); font-size:11px;
-    font-weight:700; padding:2px 10px; border-radius:999px;
+    display:inline-block;
+    background:var(--good-bg);
+    color:var(--good);
+    font-size:11px;
+    font-weight:700;
+    padding:2px 10px;
+    border-radius:999px;
   }
   .pin-overlay{
-    position:fixed; inset:0; background:rgba(31,41,55,.5); display:flex;
-    align-items:center; justify-content:center; z-index:50;
+    position:fixed;
+    inset:0;
+    background:rgba(31,41,55,.5);
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    z-index:50;
   }
-  .pin-box{ background:#fff; border-radius:12px; padding:26px; width:300px; }
+  .pin-box{
+    background:#fff;
+    border-radius:12px;
+    padding:26px;
+    width:300px;
+  }
   .pin-box h3{margin:0 0 4px; color:var(--ink); font-size:16px;}
   .pin-box .sub{color:var(--muted); font-size:12px; margin-bottom:16px;}
   .pin-err{color:var(--low); font-size:12px; min-height:16px; margin-bottom:4px;}
   .toast{
-    position:fixed; bottom:24px; left:50%; transform:translateX(-50%); background:var(--ink);
-    color:#fff; padding:9px 18px; border-radius:999px; font-size:12.5px; z-index:60;
-    opacity:0; transition:opacity .25s; pointer-events:none;
+    position:fixed;
+    bottom:24px;
+    left:50%;
+    transform:translateX(-50%);
+    background:var(--ink);
+    color:#fff;
+    padding:9px 18px;
+    border-radius:999px;
+    font-size:12.5px;
+    z-index:60;
+    opacity:0;
+    transition:opacity .25s;
+    pointer-events:none;
   }
   .toast.show{opacity:1;}
   .search-bar{display:flex; gap:8px;}
   .search-bar input{flex:1;}
   .instructor-card{
-    display:flex; justify-content:space-between; align-items:center; background:var(--blue-soft);
-    color:var(--blue-deep); padding:14px 18px; border-radius:10px; margin-bottom:16px; flex-wrap:wrap; gap:8px;
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    background:var(--blue-soft);
+    color:var(--blue-deep);
+    padding:14px 18px;
+    border-radius:10px;
+    margin-bottom:16px;
   }
   .instructor-card .name{font-weight:700; font-size:16px;}
-  .instructor-card .idline{font-family:'SFMono-Regular',Consolas,monospace; font-size:11.5px; opacity:.8; display:flex; gap:10px; flex-wrap:wrap;}
+  .instructor-card .nid{font-family:'SFMono-Regular',Consolas,monospace; font-size:11.5px; opacity:.75;}
   .loading{color:var(--muted); font-size:13px; text-align:center; padding:20px;}
-  .admin-list{ display:flex; flex-wrap:wrap; gap:8px; margin-bottom:14px; }
-  .admin-chip{
-    border:1px solid var(--line); background:#FAFAFB; padding:5px 12px; border-radius:999px;
-    font-size:12px; display:flex; align-items:center; gap:6px;
+  .admin-list{
+    display:flex;
+    flex-wrap:wrap;
+    gap:8px;
+    margin-bottom:14px;
   }
-  .team-block{ border:1px solid var(--line); border-radius:10px; padding:16px; margin-bottom:14px; background:#FCFCFD; }
-  .team-block .team-head{ display:flex; justify-content:space-between; align-items:center; margin-bottom:10px; }
-  .team-block .team-head .tname{ font-weight:700; font-size:14px; color:var(--purple); }
-  .team-block .team-head .tlead{ font-size:11.5px; color:var(--muted); }
-  @media (max-width:600px){ header.top{flex-direction:column; align-items:flex-start;} }
+  .admin-chip{
+    border:1px solid var(--line);
+    background:#FAFAFB;
+    padding:5px 12px;
+    border-radius:999px;
+    font-size:12px;
+    display:flex;
+    align-items:center;
+    gap:6px;
+  }
+  @media (max-width:600px){
+    header.top{flex-direction:column; align-items:flex-start;}
+  }
 </style>
 </head>
 <body>
@@ -211,95 +358,85 @@
 
 <div class="toast" id="toast"></div>
 
+<!-- استيراد ملف بيانات تيم ألاء بشكل خارجي -->
+<script src="alaa_team.js"></script>
+
 <script>
-const IMPROVEMENT_AREAS = ['Camera', 'Attitude', 'Preparation', 'Patient with student', 'Body language'];
-
-const DEFAULT_ADMINS = [
-  {name:'Alaa', pin:'1111', team:'Team 1'},
-  {name:'Sara', pin:'2222', team:'Team 2'},
-  {name:'Marwa', pin:'3333', team:'Team 3'},
-  {name:'Yomna', pin:'4444', team:'Team 4'},
+const PERF_LEVELS = [
+  {key:'excellent', label:'Excellent'},
+  {key:'good', label:'Very good'},
+  {key:'mid', label:'Average'},
+  {key:'low', label:'Needs improvement'},
 ];
-const LEAD_PIN = '5000'; // Team Lead overview access code
+const PERF_SCORE = {excellent:4, good:3, mid:2, low:1};
 
-function getModeFromUrl(){
-  try{
-    const params = new URLSearchParams(window.location.search);
-    let v = params.get('view');
-    if(!v && window.location.hash){ v = window.location.hash.replace('#',''); }
-    if(v){
-      v = v.trim().toLowerCase();
-      if(v === 'admin' || v === 'instructor' || v === 'lead') return v;
-    }
-  }catch(e){}
+// جلب التيم الخارجي عند توفره، وإلا استخدام مصفوفة فارغة للاستيراد اليدوي
+const DEFAULT_TEAM = typeof ALAA_TEAM_DATA !== 'undefined' ? ALAA_TEAM_DATA : [];
+
+const DEFAULT_TEAMS = [
+  { id:'t1', label:'Team 1 - Alaa',      username:'alaa',  password:'alaa1234'  },
+  { id:'t2', label:'Team 2 - Sara Adly', username:'sara',  password:'sara1234' },
+  { id:'t3', label:'Team 3 - Marwa',     username:'marwa', password:'marwa1234'},
+  { id:'t4', label:'Team 4 - Yomna',     username:'yomna', password:'yomna1234'},
+];
+
+const DEFAULT_LEADER = { username:'leader', password:'leader2026' };
+
+function getRoleFromUrl(){
+  const params = new URLSearchParams(window.location.search);
+  const role = params.get('role');
+  if(role === 'user' || role === 'lead' || role === 'admin' || role === 'leader') return role;
   return null;
 }
 
-function setUrlForMode(mode){
-  try{
-    const url = new URL(window.location.href);
-    url.searchParams.set('view', mode);
-    url.hash = '';
-    window.history.replaceState(null, '', url.toString());
-  }catch(e){}
-}
-
 let state = {
-  mode: getModeFromUrl() || 'instructor', // 'admin' | 'instructor' | 'lead'
+  mode: 'instructor',
   adminUnlocked: false,
-  currentAdminName: null,
-  leadUnlocked: false,
+  leaderUnlocked: false,
+  leaderTeamFilter: 'all',
+  currentTeamId: null,
+  currentTeamLabel: null,
   data: null,
   selectedInstructorId: null,
-  leadSelectedInstructorId: null,
   lookupResultId: null,
   lookupInput: '',
   loading: true,
-  noteDraft: null,
-  importFileName: null,
-  rosterQueryDraft: '',
-  rosterQueryApplied: '',
-  rosterCollapsed: true,
-  summaryCollapsed: true,
-  leadTeamOpen: {},
-  leadQueryDraft: '',
-  leadQueryApplied: '',
+  roleParam: getRoleFromUrl(),
 };
 
 const DATA_KEY = 'team_data';
 
-function freshDraft(){
-  return {
-    date: new Date().toISOString().slice(0,10),
-    session: '',
-    overall: 0,
-    improvements: [],
-    qualityNote: '',
-    instructorMessage: '',
-  };
-}
-
 async function loadData(){
   try{
     const res = await window.storage.get(DATA_KEY, true);
-    state.data = res ? JSON.parse(res.value) : { instructors: [], notes: {}, admins: DEFAULT_ADMINS.slice() };
+    state.data = res ? JSON.parse(res.value) : { instructors: [], notes: {}, teams: DEFAULT_TEAMS.map(t=>({...t})) };
   }catch(e){
-    state.data = { instructors: [], notes: {}, admins: DEFAULT_ADMINS.slice() };
+    state.data = { instructors: [], notes: {}, teams: DEFAULT_TEAMS.map(t=>({...t})) };
   }
-  if(!state.data.admins || state.data.admins.length === 0){
-    state.data.admins = DEFAULT_ADMINS.slice();
+  if(!state.data.teams || state.data.teams.length === 0){
+    state.data.teams = DEFAULT_TEAMS.map(t=>({...t}));
   }
-  state.data.admins.forEach(a=>{
-    if(!a.team){
-      const known = DEFAULT_ADMINS.find(d=>d.name.toLowerCase() === a.name.toLowerCase());
-      a.team = known ? known.team : a.name + "'s Team";
+  if(!state.data.leaderAccount){
+    state.data.leaderAccount = {...DEFAULT_LEADER};
+  }
+  state.data.instructors.forEach(i=>{
+    if(!i.teamId && i.team){
+      const match = state.data.teams.find(t=> t.label.toLowerCase().includes(String(i.team).toLowerCase()) || String(i.team).toLowerCase().includes(t.label.toLowerCase()));
+      i.teamId = match ? match.id : state.data.teams[0].id;
+    } else if(!i.teamId){
+      i.teamId = state.data.teams[0].id;
     }
   });
-  if(!state.data.instructors) state.data.instructors = [];
-  if(!state.data.notes) state.data.notes = {};
+
+  if(state.roleParam === 'user'){
+    state.mode = 'instructor';
+  } else if(state.roleParam === 'lead' || state.roleParam === 'admin'){
+    state.mode = 'admin';
+  } else if(state.roleParam === 'leader'){
+    state.mode = 'leader';
+  }
   state.loading = false;
   render();
-  saveData();
 }
 
 async function saveData(){
@@ -322,105 +459,16 @@ function escapeHtml(s){
   return (s||'').replace(/[&<>"']/g, c => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
 }
 
-function perfTier(score){
-  if(score >= 4.5) return 'excellent';
-  if(score >= 3.5) return 'good';
-  if(score >= 2.5) return 'mid';
-  return 'low';
-}
-function perfLabel(tier){
-  return {excellent:'Excellent', good:'Very good', mid:'Average', low:'Needs improvement'}[tier] || tier;
-}
-function initials(name){
-  return (name||'').trim().split(/\s+/).slice(0,2).map(w=>w[0]?.toUpperCase()||'').join('');
-}
-function renderStarsStatic(value, small){
-  let out = `<span class="stars ${small?'small':''}">`;
-  for(let i=1;i<=5;i++){
-    out += `<span class="star ${i<=Math.round(value)?'filled':''}">★</span>`;
-  }
-  out += '</span>';
-  return out;
-}
-function avgScore(list){
-  const scores = (list||[]).map(n=>n.overall||0);
-  return scores.length ? scores.reduce((a,b)=>a+b,0) / scores.length : 0;
+function teamLabelFor(teamId){
+  const t = (state.data.teams||[]).find(t=>t.id===teamId);
+  return t ? t.label : '';
 }
 
-function renderRatingTrend(instructorId){
-  const list = (state.data.notes[instructorId] || []).slice().sort((a,b)=> a.date.localeCompare(b.date));
-  if(list.length === 0) return '';
-
-  let trendLabel = '→ Stable', trendColor = 'var(--muted)';
-  if(list.length >= 2){
-    const half = Math.ceil(list.length/2);
-    const firstHalf = avgScore(list.slice(0, half));
-    const secondHalf = avgScore(list.slice(half));
-    if(secondHalf - firstHalf >= 0.3){ trendLabel = '↑ Improving'; trendColor = 'var(--good)'; }
-    else if(firstHalf - secondHalf >= 0.3){ trendLabel = '↓ Declining'; trendColor = 'var(--low)'; }
-  }
-
-  const w = Math.max(300, Math.min(760, list.length * 68));
-  const h = 168;
-  const padL = 30, padR = 14, padT = 12, padB = 28;
-  const plotW = w - padL - padR;
-  const plotH = h - padT - padB;
-  const stepX = list.length > 1 ? plotW / (list.length - 1) : 0;
-  const yFor = v => padT + plotH - ((Math.max(0,Math.min(5,v))-1)/4) * plotH;
-
-  const points = list.map((n, idx) => ({
-    x: padL + (list.length > 1 ? idx * stepX : plotW/2),
-    y: yFor(n.overall || 0),
-    n
-  }));
-
-  const linePath = points.map((p, idx) => `${idx===0?'M':'L'}${p.x.toFixed(1)},${p.y.toFixed(1)}`).join(' ');
-  const baseY = (padT + plotH).toFixed(1);
-  const areaPath = `${linePath} L${points[points.length-1].x.toFixed(1)},${baseY} L${points[0].x.toFixed(1)},${baseY} Z`;
-
-  const gridLines = [1,2,3,4,5].map(v=>{
-    const y = yFor(v);
-    return `<line x1="${padL}" y1="${y.toFixed(1)}" x2="${w-padR}" y2="${y.toFixed(1)}" stroke="var(--line)" stroke-width="1"/><text x="${padL-7}" y="${(y+3).toFixed(1)}" font-size="9.5" fill="var(--muted)" text-anchor="end">${v}</text>`;
-  }).join('');
-
-  const tierVar = { excellent:'--good', good:'--good2', mid:'--mid', low:'--low' };
-  const labelEvery = Math.max(1, Math.ceil(list.length / 7));
-  const dotsAndLabels = points.map((p, idx)=>{
-    const tier = perfTier(p.n.overall || 0);
-    const showLabel = idx === 0 || idx === points.length-1 || idx % labelEvery === 0;
-    return `
-      <circle cx="${p.x.toFixed(1)}" cy="${p.y.toFixed(1)}" r="4.2" fill="var(${tierVar[tier]})" stroke="#fff" stroke-width="1.5"><title>${escapeHtml(p.n.date)} · ${(p.n.overall||0)}/5</title></circle>
-      ${showLabel ? `<text x="${p.x.toFixed(1)}" y="${h-9}" font-size="9" fill="var(--muted)" text-anchor="middle">${escapeHtml((p.n.date||'').slice(5))}</text>` : ''}
-    `;
-  }).join('');
-
-  return `
-  <div class="panel" style="padding:14px 18px;">
-    <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:8px;flex-wrap:wrap;gap:6px;">
-      <span style="font-size:11px;font-weight:700;color:var(--muted);text-transform:uppercase;letter-spacing:.02em;">Performance over time · ${list.length} note${list.length>1?'s':''}</span>
-      <span style="font-size:12.5px;font-weight:700;color:${trendColor}">${trendLabel}</span>
-    </div>
-    <div style="overflow-x:auto;">
-      <svg width="${w}" height="${h}" viewBox="0 0 ${w} ${h}" style="display:block;">
-        ${gridLines}
-        <path d="${areaPath}" fill="var(--blue-soft)" opacity="0.7"/>
-        <path d="${linePath}" fill="none" stroke="var(--blue)" stroke-width="2.2" stroke-linejoin="round" stroke-linecap="round"/>
-        ${dotsAndLabels}
-      </svg>
-    </div>
-  </div>`;
+function perfLabel(key){
+  const p = PERF_LEVELS.find(p=>p.key===key);
+  return p ? p.label : key;
 }
 
-function renderStarsInput(value){
-  let out = `<span class="stars input" id="overallStars">`;
-  for(let i=1;i<=5;i++){
-    out += `<span class="star ${i<=value?'filled':''}" data-val="${i}">★</span>`;
-  }
-  out += '</span>';
-  return out;
-}
-
-// ---------- rendering ----------
 function render(){
   const app = document.getElementById('app');
   if(state.loading){
@@ -429,331 +477,246 @@ function render(){
   }
   app.innerHTML = `
     ${renderHeader()}
-    ${state.mode === 'admin' ? renderAdmin() : state.mode === 'lead' ? renderLead() : renderInstructor()}
+    ${state.mode === 'admin' ? renderAdmin() : state.mode === 'leader' ? renderLeaderMode() : renderInstructor()}
     ${(!state.adminUnlocked && state.mode==='admin') ? renderPinOverlay() : ''}
-    ${(!state.leadUnlocked && state.mode==='lead') ? renderLeadPinOverlay() : ''}
+    ${(!state.leaderUnlocked && state.mode==='leader') ? renderLeaderPinOverlay() : ''}
   `;
   attachHeaderEvents();
   if(state.mode === 'admin' && state.adminUnlocked) attachAdminEvents();
   if(state.mode === 'instructor') attachInstructorEvents();
   if(state.mode === 'admin' && !state.adminUnlocked) attachPinEvents();
-  if(state.mode === 'lead' && state.leadUnlocked) attachLeadEvents();
-  if(state.mode === 'lead' && !state.leadUnlocked) attachLeadPinEvents();
+  if(state.mode === 'leader' && state.leaderUnlocked) attachLeaderEvents();
+  if(state.mode === 'leader' && !state.leaderUnlocked) attachLeaderPinEvents();
 }
 
 function renderHeader(){
   return `
   <header class="top">
-    <div class="brand-row">
-      <div class="brand-logo">
-        <img src="data:image/png;base64,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" alt="iSchool" class="brand-img">
-      </div>
-      <div class="brand-divider"></div>
-      <div class="title-block">
-        <h1>Instructor Performance Tracker</h1>
-        <div class="sub">Demi Summer 2026 · weekly notes and updates</div>
-      </div>
+    <div class="title-block">
+      <h1>Instructor Performance Tracker</h1>
+      <div class="sub">Demi Summer 2026 · weekly notes and updates</div>
     </div>
+    ${(state.roleParam === 'user' || state.roleParam === 'lead' || state.roleParam === 'leader') ? '' : `
     <div class="mode-switch">
       <button data-mode="instructor" class="${state.mode==='instructor'?'active':''}">Instructor view</button>
       <button data-mode="admin" class="${state.mode==='admin'?'active':''}">Admin view</button>
-      <button data-mode="lead" class="${state.mode==='lead'?'active':''}">Team Lead view</button>
-      <button id="copyLinkBtn" class="btn-ghost" style="border:1px solid var(--line); border-radius:8px; padding:8px 12px; font-size:12.5px; font-weight:600;" title="Copy a direct link to this view">🔗 Copy link</button>
-    </div>
+      <button data-mode="leader" class="${state.mode==='leader'?'active':''}">Leader view</button>
+    </div>`}
     ${state.mode==='admin' && state.adminUnlocked ? `
-    <div class="whoami"><span class="dot"></span> Signed in as <b>${escapeHtml(state.currentAdminName)}</b>
-      <button id="signOutBtn">Sign out</button></div>` : ''}
-    ${state.mode==='lead' && state.leadUnlocked ? `
-    <div class="whoami"><span class="dot"></span> Team Lead view
-      <button id="leadSignOutBtn">Sign out</button></div>` : ''}
+    <div class="whoami">
+      <span class="dot"></span> Signed in as <b>${escapeHtml(state.currentTeamLabel)}</b>
+      <button id="signOutBtn">Sign out</button>
+    </div>` : ''}
+    ${state.mode==='leader' && state.leaderUnlocked ? `
+    <div class="whoami">
+      <span class="dot"></span> Signed in as <b>Overall team leader</b>
+      <button id="leaderSignOutBtn">Sign out</button>
+    </div>` : ''}
   </header>`;
 }
 
 function attachHeaderEvents(){
   document.querySelectorAll('.mode-switch button').forEach(btn=>{
-    if(!btn.dataset.mode) return;
-    btn.onclick = ()=>{ state.mode = btn.dataset.mode; setUrlForMode(state.mode); render(); };
+    btn.onclick = ()=>{
+      state.mode = btn.dataset.mode;
+      render();
+    };
   });
   const signOut = document.getElementById('signOutBtn');
-  if(signOut) signOut.onclick = ()=>{ state.adminUnlocked=false; state.currentAdminName=null; render(); };
-  const leadSignOut = document.getElementById('leadSignOutBtn');
-  if(leadSignOut) leadSignOut.onclick = ()=>{ state.leadUnlocked=false; render(); };
-
-  const copyLinkBtn = document.getElementById('copyLinkBtn');
-  if(copyLinkBtn) copyLinkBtn.onclick = async ()=>{
-    let link = '';
-    try{
-      const url = new URL(window.location.href);
-      url.searchParams.set('view', state.mode);
-      url.hash = '';
-      link = url.toString();
-    }catch(e){
-      link = window.location.href;
-    }
-    try{
-      await navigator.clipboard.writeText(link);
-      showToast('Link copied — opens straight into this view');
-    }catch(e){
-      const ta = document.createElement('textarea');
-      ta.value = link; ta.style.position='fixed'; ta.style.opacity='0';
-      document.body.appendChild(ta); ta.select();
-      try{ document.execCommand('copy'); showToast('Link copied — opens straight into this view'); }
-      catch(err){ showToast('Could not copy — copy it from the address bar'); }
-      document.body.removeChild(ta);
-    }
+  if(signOut) signOut.onclick = ()=>{
+    state.adminUnlocked = false;
+    state.currentTeamId = null;
+    state.currentTeamLabel = null;
+    state.selectedInstructorId = null;
+    render();
+  };
+  const leaderSignOut = document.getElementById('leaderSignOutBtn');
+  if(leaderSignOut) leaderSignOut.onclick = ()=>{
+    state.leaderUnlocked = false;
+    state.selectedInstructorId = null;
+    render();
   };
 }
 
 function renderPinOverlay(){
-  const admins = state.data.admins;
   return `
-  <div class="pin-overlay"><div class="pin-box">
-    <h3>Admin sign-in</h3>
-    <div class="sub">Choose your name and enter your PIN</div>
-    <label>Admin</label>
-    <select id="adminSelect">
-      ${admins.map(a=>`<option value="${escapeHtml(a.name)}">${escapeHtml(a.name)} — ${escapeHtml(a.team||'')}</option>`).join('')}
-    </select>
-    <div style="height:10px"></div>
-    <label>PIN</label>
-    <input type="password" id="pinInput" placeholder="PIN" maxlength="8" />
-    <div class="pin-err" id="pinErr"></div>
-    <button class="btn btn-primary" id="pinSubmit" style="width:100%; margin-top:6px">Sign in</button>
-  </div></div>`;
+  <div class="pin-overlay">
+    <div class="pin-box">
+      <h3>${state.roleParam === 'lead' ? 'Team leader sign-in' : 'Team sign-in'}</h3>
+      <div class="sub">${state.roleParam === 'lead' ? "Sign in with your team's username and password to view your read-only performance summary" : "Enter your team's username and password"}</div>
+      <label>Username</label>
+      <input type="text" id="teamUserInput" placeholder="Username" autocomplete="username" />
+      <div style="height:10px"></div>
+      <label>Password</label>
+      <input type="password" id="pinInput" placeholder="Password" autocomplete="current-password" />
+      <div class="pin-err" id="pinErr"></div>
+      <button class="btn btn-primary" id="pinSubmit" style="width:100%; margin-top:6px">Sign in</button>
+    </div>
+  </div>`;
 }
 
 function attachPinEvents(){
   const submit = ()=>{
-    const name = document.getElementById('adminSelect').value;
-    const pin = document.getElementById('pinInput').value.trim();
-    const match = state.data.admins.find(a=>a.name === name && a.pin === pin);
-    if(match){ state.adminUnlocked = true; state.currentAdminName = match.name; render(); }
-    else{ document.getElementById('pinErr').textContent = 'Wrong PIN, try again'; }
+    const username = document.getElementById('teamUserInput').value.trim().toLowerCase();
+    const pin = document.getElementById('pinInput').value;
+    const match = state.data.teams.find(t=> t.username.toLowerCase() === username && t.password === pin);
+    if(match){
+      state.adminUnlocked = true;
+      state.currentTeamId = match.id;
+      state.currentTeamLabel = match.label;
+      render();
+    }else{
+      document.getElementById('pinErr').textContent = 'Wrong username or password';
+    }
   };
   document.getElementById('pinSubmit').onclick = submit;
   document.getElementById('pinInput').addEventListener('keydown', e=>{ if(e.key==='Enter') submit(); });
-  document.getElementById('pinInput').focus();
+  document.getElementById('teamUserInput').addEventListener('keydown', e=>{ if(e.key==='Enter') submit(); });
+  document.getElementById('teamUserInput').focus();
 }
 
-function renderLeadPinOverlay(){
+function renderLeaderPinOverlay(){
   return `
-  <div class="pin-overlay"><div class="pin-box">
-    <h3>Team Lead sign-in</h3>
-    <div class="sub">Enter the Team Lead access code</div>
-    <label>Access code</label>
-    <input type="password" id="leadPinInput" placeholder="Code" maxlength="8" />
-    <div class="pin-err" id="leadPinErr"></div>
-    <button class="btn btn-primary" id="leadPinSubmit" style="width:100%; margin-top:6px">Sign in</button>
-  </div></div>`;
+  <div class="pin-overlay">
+    <div class="pin-box">
+      <h3>Leader sign-in</h3>
+      <div class="sub">Sign in to view every team's instructors, notes and performance together</div>
+      <label>Username</label>
+      <input type="text" id="leaderUserInput" placeholder="Username" autocomplete="username" />
+      <div style="height:10px"></div>
+      <label>Password</label>
+      <input type="password" id="leaderPinInput" placeholder="Password" autocomplete="current-password" />
+      <div class="pin-err" id="leaderPinErr"></div>
+      <button class="btn btn-primary" id="leaderPinSubmit" style="width:100%; margin-top:6px">Sign in</button>
+    </div>
+  </div>`;
 }
 
-function attachLeadPinEvents(){
+function attachLeaderPinEvents(){
   const submit = ()=>{
-    const pin = document.getElementById('leadPinInput').value.trim();
-    if(pin === LEAD_PIN){ state.leadUnlocked = true; render(); }
-    else{ document.getElementById('leadPinErr').textContent = 'Wrong code, try again'; }
+    const username = document.getElementById('leaderUserInput').value.trim().toLowerCase();
+    const pin = document.getElementById('leaderPinInput').value;
+    const acc = state.data.leaderAccount || DEFAULT_LEADER;
+    if(acc.username.toLowerCase() === username && acc.password === pin){
+      state.leaderUnlocked = true;
+      render();
+    }else{
+      document.getElementById('leaderPinErr').textContent = 'Wrong username or password';
+    }
   };
-  document.getElementById('leadPinSubmit').onclick = submit;
-  document.getElementById('leadPinInput').addEventListener('keydown', e=>{ if(e.key==='Enter') submit(); });
-  document.getElementById('leadPinInput').focus();
+  document.getElementById('leaderPinSubmit').onclick = submit;
+  document.getElementById('leaderPinInput').addEventListener('keydown', e=>{ if(e.key==='Enter') submit(); });
+  document.getElementById('leaderUserInput').addEventListener('keydown', e=>{ if(e.key==='Enter') submit(); });
+  document.getElementById('leaderUserInput').focus();
 }
 
-// ---------- ADMIN MODE ----------
 function renderAdmin(){
   if(!state.adminUnlocked) return '<div style="min-height:200px"></div>';
-  const myTeam = (state.data.admins.find(a=>a.name === state.currentAdminName)||{}).team || '';
-  const instructors = state.data.instructors.filter(i => i.team === myTeam);
+  if(state.roleParam === 'lead') return renderLeadView();
+
+  const team = state.data.teams.find(t=>t.id === state.currentTeamId);
+  const instructors = state.data.instructors.filter(i=> i.teamId === state.currentTeamId);
   const selected = instructors.find(i=>i.id === state.selectedInstructorId) || null;
+  const showDefaultImport = state.currentTeamId === 't1';
 
   return `
+  ${renderShareLinksPanel()}
   <div class="panel">
-    <h2><span class="eyebrow">Team</span> Manage admins</h2>
+    <h2><span class="eyebrow">Account</span> My team</h2>
     <div class="admin-list">
-      ${state.data.admins.map(a => `<span class="admin-chip">👤 ${escapeHtml(a.name)} · ${escapeHtml(a.team||'')}</span>`).join('')}
+      <span class="admin-chip">👤 ${escapeHtml(team ? team.label : '')} · user: ${escapeHtml(team ? team.username : '')}</span>
     </div>
     <div class="row">
-      <div><label>New admin name</label><input type="text" id="newAdminName"></div>
-      <div><label>Team name</label><input type="text" id="newAdminTeam" placeholder="e.g. Team 5"></div>
-      <div><label>PIN</label><input type="text" id="newAdminPin"></div>
-      <div style="flex:0 0 auto; align-self:flex-end"><button class="btn btn-ghost" id="addAdminBtn">Add admin</button></div>
+      <div>
+        <label>New username</label>
+        <input type="text" id="accUsername" placeholder="Leave as-is to keep current" value="${escapeHtml(team ? team.username : '')}">
+      </div>
+      <div>
+        <label>New password</label>
+        <input type="password" id="accPassword" placeholder="Leave blank to keep current">
+      </div>
+      <div style="flex:0 0 auto; align-self:flex-end">
+        <button class="btn btn-ghost" id="updateAccountBtn">Save</button>
+      </div>
     </div>
   </div>
 
   <div class="panel">
-    <h2><span class="eyebrow">Import</span> Add instructors from a CSV file · ${escapeHtml(myTeam)}</h2>
-    <label>If your file has column headers (Tutor ID, Name, Phone, Email, National ID) we use them directly — any extra columns like Grade or Mentor are ignored. Without headers, we auto-detect columns as before.</label>
-    <div class="file-drop" id="fileDrop">
-      📄 Click to choose a CSV file
-      <input type="file" id="csvFile" accept=".csv,text/csv">
-      ${state.importFileName ? `<div class="file-name">${escapeHtml(state.importFileName)}</div>` : ''}
+    <h2><span class="eyebrow">Import</span> Add instructors</h2>
+    ${showDefaultImport ? `
+    <div style="background:var(--blue-soft); border-radius:8px; padding:12px 14px; margin-bottom:14px; display:flex; justify-content:space-between; align-items:center; gap:10px; flex-wrap:wrap;">
+      <div style="font-size:12.5px; color:var(--blue-deep)">One click: import your saved team list (${DEFAULT_TEAM.length} instructors)</div>
+      <button class="btn btn-primary" id="importDefaultBtn" style="flex:0 0 auto">Import my team</button>
+    </div>` : ''}
+    <label>Upload a CSV file (header row Tutor ID, Name, Phone, NID, Grade — or simply Name, National ID per line). Always added to your own team only.</label>
+    <div class="row" style="gap:8px; align-items:center; margin-bottom:16px;">
+      <input type="file" id="importFileInput" accept=".csv,text/csv" style="flex:1;">
+      <button class="btn btn-primary" id="importFileBtn" style="flex:0 0 auto">Import file</button>
     </div>
+    <label>...or paste a CSV (same format). Rows are always added to your own team only.</label>
+    <textarea id="importBox" placeholder="Example:&#10;Tutor ID,Name,Phone,NID,Grade&#10;T-13932,Yara Mostafa,1207717867,30111198800504,G4"></textarea>
     <div class="row" style="margin-top:10px">
+      <button class="btn btn-primary" id="importBtn" style="flex:0 0 auto">Import pasted rows</button>
       <button class="btn btn-ghost" id="exportBtn" style="flex:0 0 auto">Export my team's data (CSV)</button>
     </div>
   </div>
 
   <div class="panel">
-    <h2><span class="eyebrow">Manual</span> Add a single instructor</h2>
-    <div class="row">
-      <div><label>Tutor ID</label><input type="text" id="manualId" placeholder="T-12345"></div>
-      <div><label>Name</label><input type="text" id="manualName" placeholder="Full name"></div>
-      <div><label>National ID</label><input type="text" id="manualNid" placeholder="14 digits"></div>
-    </div>
-    <div class="row" style="margin-top:10px">
-      <div><label>Phone</label><input type="text" id="manualPhone" placeholder="Optional"></div>
-      <div><label>Email</label><input type="text" id="manualEmail" placeholder="Optional"></div>
-      <div style="flex:0 0 auto; align-self:flex-end"><button class="btn btn-primary" id="addInstructorBtn">Add instructor</button></div>
-    </div>
-  </div>
-
-  <div class="panel">
-    <h2 id="rosterToggle" style="cursor:pointer; user-select:none">
-      ${escapeHtml(myTeam)} roster (${instructors.length})
-      <span style="margin-left:auto; color:var(--muted); font-size:12px">${state.rosterCollapsed ? '▼ Show' : '▲ Hide'}</span>
-    </h2>
-    ${state.rosterCollapsed ? '' : `
+    <h2>Instructor roster (${instructors.length})</h2>
     <div class="search-bar">
-      <input type="text" id="rosterFilter" placeholder="Search by Tutor ID, name, or National ID..." value="${escapeHtml(state.rosterQueryDraft||'')}">
-      <button class="btn btn-primary" id="rosterSearchBtn" style="flex:0 0 auto">Search</button>
-      ${state.rosterQueryApplied ? `<button class="btn btn-ghost" id="rosterClearBtn" style="flex:0 0 auto">Clear</button>` : ''}
+      <input type="text" id="rosterFilter" placeholder="Search by name or national ID...">
     </div>
-    <div class="roster" id="rosterList">${renderRosterRows(instructors)}</div>
-    `}
+    <div class="roster" id="rosterList">
+      ${instructors.length === 0 ? '<div class="empty">No instructors yet — paste names above to import them</div>' :
+        instructors.map(i => `
+          <div class="chip ${i.id===state.selectedInstructorId?'selected':''}" data-id="${i.id}">
+            ${escapeHtml(i.name)}${i.grade ? ` · ${escapeHtml(i.grade)}` : ''} <span class="nid">${escapeHtml(i.id)}</span>
+          </div>`).join('')}
+    </div>
   </div>
 
   ${selected ? renderSelectedInstructorAdmin(selected) : ''}
 
   <div class="panel">
-    <h2 id="summaryToggle" style="cursor:pointer; user-select:none">
-      ${escapeHtml(myTeam)} summary
-      <span style="margin-left:auto; color:var(--muted); font-size:12px">${state.summaryCollapsed ? '▼ Show table' : '▲ Hide table'}</span>
-    </h2>
-    <div style="font-size:11px;font-weight:700;color:var(--muted);text-transform:uppercase;letter-spacing:.02em;margin-bottom:8px;">Most common areas to improve</div>
-    ${renderImprovementChart(instructors)}
-    ${state.summaryCollapsed ? '' : `<div style="margin-top:16px;">${renderTeamSummary(instructors)}</div>`}
+    <h2>Team summary</h2>
+    ${renderTeamSummary(instructors)}
   </div>
   `;
 }
 
-function computeImprovementCounts(instructors){
-  const counts = {};
-  IMPROVEMENT_AREAS.forEach(a=> counts[a] = 0);
-  instructors.forEach(i=>{
-    (state.data.notes[i.id] || []).forEach(n=>{
-      (n.improvements || []).forEach(a=>{
-        counts[a] = (counts[a] || 0) + 1;
-      });
-    });
-  });
-  return counts;
-}
-
-function renderImprovementChart(instructors){
-  const counts = computeImprovementCounts(instructors);
-  const entries = Object.entries(counts).sort((a,b)=> b[1]-a[1]);
-  const total = entries.reduce((s,e)=> s+e[1], 0);
-  if(total === 0){
-    return '<div class="empty" style="padding:6px 0;">No "needs to improve" tags recorded yet for this team</div>';
-  }
-  const max = Math.max(1, ...entries.map(e=>e[1]));
-  return `
-  <div style="display:flex; flex-direction:column; gap:10px; margin-bottom:2px;">
-    ${entries.map(([area,count])=>{
-      const pct = Math.round((count/max)*100);
-      return `
-      <div>
-        <div style="display:flex; justify-content:space-between; font-size:12.5px; margin-bottom:3px;">
-          <span style="font-weight:600; color:var(--ink);">${escapeHtml(area)}</span>
-          <span style="color:var(--muted);">${count}</span>
-        </div>
-        <div style="background:var(--line); border-radius:6px; height:9px; overflow:hidden;">
-          <div style="background:var(--blue); width:${pct}%; height:100%; border-radius:6px;"></div>
-        </div>
-      </div>`;
-    }).join('')}
-  </div>`;
-}
-
-function renderRosterRows(instructors){
-  if(instructors.length === 0){
-    return '<div class="empty">No instructors yet in this team — import a CSV file above</div>';
-  }
-  const qRaw = (state.rosterQueryApplied||'').trim();
-  const q = qRaw.toLowerCase();
-  const qDigits = qRaw.replace(/[^\d]/g, '');
-  const matches = q ? instructors.filter(i =>
-    i.name.toLowerCase().includes(q) ||
-    i.id.toLowerCase().includes(q) ||
-    (qDigits && (i.nid||'').includes(qDigits))
-  ) : instructors;
-
-  if(q && matches.length === 0){
-    return `<div class="empty">No matches for "${escapeHtml(state.rosterQueryApplied)}" in this team</div>`;
-  }
-
-  return matches.map(i => {
-    const count = (state.data.notes[i.id]||[]).length;
-    return `
-    <div class="roster-row ${i.id===state.selectedInstructorId?'selected':''}" data-id="${i.id}">
-      <div class="left">
-        <span class="avatar">${initials(i.name)}</span>
-        <span class="name">${escapeHtml(i.name)}</span>
-      </div>
-      <div class="left">
-        <span class="count-pill">${count} notes</span>
-        <span class="chevron">${i.id===state.selectedInstructorId?'▲':'▼'}</span>
-      </div>
-    </div>`;
-  }).join('');
-}
-
 function renderSelectedInstructorAdmin(selected){
   const list = (state.data.notes[selected.id] || []).slice().sort((a,b)=> b.date.localeCompare(a.date));
-  if(!state.noteDraft) state.noteDraft = freshDraft();
-  const d = state.noteDraft;
-
   return `
   <div class="panel">
     <div class="instructor-card">
       <div>
         <div class="name">${escapeHtml(selected.name)}</div>
-        <div class="idline"><span>ID: ${escapeHtml(selected.id)}</span><span>NID: ${escapeHtml(selected.nid||'—')}</span></div>
+        <div class="nid">${escapeHtml(selected.id)}${selected.tutorId ? ' · ' + escapeHtml(selected.tutorId) : ''}${selected.grade ? ' · ' + escapeHtml(selected.grade) : ''}${selected.phone ? ' · ' + escapeHtml(selected.phone) : ''}</div>
       </div>
-      <div><span class="status-pill">${list.length} notes</span>
-        <button class="btn-danger" id="deleteInstructorBtn" data-instructor-id="${escapeHtml(selected.id)}" style="margin-left:8px;">Delete instructor</button>
-      </div>
+      <div><span class="status-pill">${list.length} notes</span></div>
     </div>
-
-    ${renderRatingTrend(selected.id)}
 
     <h2><span class="eyebrow">New</span> Add a performance note</h2>
     <div class="row">
-      <div><label>Date</label><input type="date" id="noteDate" value="${d.date}"></div>
-      <div><label>Session / slot</label><input type="text" id="noteSession" value="${escapeHtml(d.session)}"></div>
+      <div>
+        <label>Date</label>
+        <input type="date" id="noteDate" value="${new Date().toISOString().slice(0,10)}">
+      </div>
+      <div>
+        <label>Session / slot</label>
+        <input type="text" id="noteSession" placeholder="e.g. Group 3 - 4 PM">
+      </div>
+      <div>
+        <label>Performance</label>
+        <select id="notePerf">
+          ${PERF_LEVELS.map(p=>`<option value="${p.key}">${p.label}</option>`).join('')}
+        </select>
+      </div>
     </div>
-
-    <div style="margin-top:14px">
-      <label>Overall performance (total average)</label>
-      ${renderStarsInput(d.overall)}
+    <div style="margin-top:10px">
+      <label>Comment</label>
+      <textarea id="noteComment" placeholder="Write your note on this session..."></textarea>
     </div>
-
-    <div style="margin-top:14px">
-      <label>Needs to improve (select one or more)</label>
-      <select id="improvementSelect" multiple>
-        ${IMPROVEMENT_AREAS.map(a => `<option value="${a}" ${d.improvements.includes(a)?'selected':''}>${a}</option>`).join('')}
-      </select>
-    </div>
-
-    <div style="margin-top:14px">
-      <label>Note for Quality <span style="font-weight:400">(internal — Admin &amp; Team Lead only, hidden from the instructor)</span></label>
-      <textarea id="qualityNote">${escapeHtml(d.qualityNote)}</textarea>
-    </div>
-
-    <div style="margin-top:14px">
-      <label>Message to Instructor <span style="font-weight:400">(visible to the instructor, Team Lead, and Admin)</span></label>
-      <textarea id="instructorMessage">${escapeHtml(d.instructorMessage)}</textarea>
-    </div>
-
     <div style="margin-top:10px">
       <button class="btn btn-primary" id="addNoteBtn">Save note</button>
     </div>
@@ -762,7 +725,7 @@ function renderSelectedInstructorAdmin(selected){
   <div class="panel">
     <h2>Notes history</h2>
     ${list.length === 0 ? '<div class="empty">No notes yet for this instructor</div>' :
-      list.map((n) => renderTicket(n, selected.id, findRealIndex(selected.id, n), 'admin')).join('')}
+      list.map((n) => renderTicket(n, selected.id, findRealIndex(selected.id, n))).join('')}
   </div>
   `;
 }
@@ -771,99 +734,326 @@ function findRealIndex(instructorId, noteObj){
   return state.data.notes[instructorId].indexOf(noteObj);
 }
 
-function renderTicket(n, instructorId, realIdx, viewer){
-  const score = n.overall || 0;
-  const tier = perfTier(score);
-  const showQuality = viewer === 'admin' || viewer === 'lead';
+function renderTicket(n, instructorId, realIdx){
   return `
   <div class="ticket">
-    <div class="stub perf-${tier}"></div>
+    <div class="stub perf-${n.performance}"></div>
     <div class="body">
       <div class="meta">
         <span>${escapeHtml(n.date)} · ${escapeHtml(n.session||'—')}</span>
-        <span class="badge perf-${tier}">${perfLabel(tier)}</span>
+        <span class="badge perf-${n.performance}">${perfLabel(n.performance)}</span>
       </div>
-      ${renderStarsStatic(score)}
-      ${(n.improvements && n.improvements.length) ? `
-      <div class="tags">${n.improvements.map(a=>`<span class="tag">${escapeHtml(a)}</span>`).join('')}</div>` : ''}
-      ${showQuality && n.qualityNote ? `
-      <div class="note-block quality"><span class="tag-label">Note for Quality (internal)</span>${escapeHtml(n.qualityNote)}</div>` : ''}
-      ${n.instructorMessage ? `
-      <div class="note-block instructor"><span class="tag-label">Message to Instructor</span>${escapeHtml(n.instructorMessage)}</div>` : ''}
+      <div class="comment">${escapeHtml(n.comment)}</div>
       ${n.addedBy ? `<div class="added-by">Added by ${escapeHtml(n.addedBy)}</div>` : ''}
       ${instructorId !== null ? `
-      <div class="row-actions"><button class="btn-danger" data-del-instructor="${instructorId}" data-del-idx="${realIdx}">Delete</button></div>` : ''}
+      <div class="row-actions">
+        <button class="btn-danger" data-del-instructor="${instructorId}" data-del-idx="${realIdx}">Delete</button>
+      </div>` : ''}
     </div>
   </div>`;
 }
 
 function renderTeamSummary(instructors){
-  if(instructors.length === 0) return '<div class="empty">Import instructors first to see the numbers</div>';
-  const rows = instructors.map(i=>{
-    const list = state.data.notes[i.id] || [];
-    const scores = list.map(n => n.overall || 0);
-    const avg = scores.length ? scores.reduce((a,b)=>a+b,0) / scores.length : 0;
+  const { notes } = state.data;
+  if(instructors.length === 0) return '<div class="empty">Import the team first to see the numbers</div>';
+  let rows = instructors.map(i=>{
+    const list = notes[i.id] || [];
+    const avg = list.length ? (list.reduce((s,n)=> s + (PERF_SCORE[n.performance]||0), 0) / list.length) : 0;
     const last = list.length ? list.slice().sort((a,b)=> b.date.localeCompare(a.date))[0].date : '—';
-    return { name:i.name, count:list.length, avg, last };
+    return { name:i.name, id:i.id, grade:i.grade||'', count:list.length, avg, last };
+  });
+  rows = rows.sort((a,b)=>{
+    if(a.count === 0 && b.count === 0) return 0;
+    if(a.count === 0) return 1;
+    if(b.count === 0) return -1;
+    return a.avg - b.avg;
   });
   return `
   <table class="summary">
-    <thead><tr><th>Name</th><th>Notes</th><th>Avg. rating</th><th>Last note</th></tr></thead>
+    <thead><tr>
+      <th>Name</th><th>Grade</th><th>Notes</th><th>Avg. performance</th><th>Last note</th>
+    </tr></thead>
     <tbody>
       ${rows.map(r=>`
         <tr>
           <td>${escapeHtml(r.name)}</td>
+          <td>${escapeHtml(r.grade)}</td>
           <td>${r.count}</td>
-          <td>${r.count ? renderStarsStatic(r.avg, true) : '—'}</td>
+          <td>${r.count ? r.avg.toFixed(1) + ' / 4' : '—'}</td>
           <td>${r.last}</td>
         </tr>`).join('')}
     </tbody>
   </table>`;
 }
 
+function renderShareLinksPanel(){
+  const base = window.location.origin + window.location.pathname;
+  const userLink = `${base}?role=user`;
+  const leadLink = `${base}?role=lead`;
+  const leaderLink = `${base}?role=leader`;
+  return `
+  <div class="panel">
+    <h2><span class="eyebrow">Share</span> Links for your team</h2>
+    <div class="row">
+      <div>
+        <label>Instructor link (national ID lookup only, no login)</label>
+        <div class="row" style="gap:6px">
+          <input type="text" readonly value="${escapeHtml(userLink)}" id="userLinkInput">
+          <button class="btn btn-ghost" style="flex:0 0 auto" data-copy="userLinkInput">Copy</button>
+        </div>
+      </div>
+      <div>
+        <label>Team leader link (read-only summary for this team — needs a team login)</label>
+        <div class="row" style="gap:6px">
+          <input type="text" readonly value="${escapeHtml(leadLink)}" id="leadLinkInput">
+          <button class="btn btn-ghost" style="flex:0 0 auto" data-copy="leadLinkInput">Copy</button>
+        </div>
+      </div>
+      <div>
+        <label>Overall leader link (read-only — sees every team, needs the leader login)</label>
+        <div class="row" style="gap:6px">
+          <input type="text" readonly value="${escapeHtml(leaderLink)}" id="leaderLinkInput">
+          <button class="btn btn-ghost" style="flex:0 0 auto" data-copy="leaderLinkInput">Copy</button>
+        </div>
+      </div>
+    </div>
+  </div>`;
+}
+
+function renderLeadView(){
+  const team = state.data.teams.find(t=>t.id === state.currentTeamId);
+  const instructors = state.data.instructors.filter(i=> i.teamId === state.currentTeamId);
+  const selected = instructors.find(i=>i.id === state.selectedInstructorId) || null;
+
+  return `
+  <div class="panel">
+    <h2><span class="eyebrow">Team</span> ${escapeHtml(team ? team.label : '')}</h2>
+    <div style="color:var(--muted); font-size:12.5px;">Read-only performance overview — signed in as ${escapeHtml(team ? team.label : '')}</div>
+  </div>
+
+  <div class="panel">
+    <h2>Instructor roster (${instructors.length})</h2>
+    <div class="search-bar">
+      <input type="text" id="rosterFilter" placeholder="Search by name or national ID...">
+    </div>
+    <div class="roster" id="rosterList">
+      ${instructors.length === 0 ? '<div class="empty">No instructors yet</div>' :
+        instructors.map(i => `
+          <div class="chip ${i.id===state.selectedInstructorId?'selected':''}" data-id="${i.id}">
+            ${escapeHtml(i.name)}${i.grade ? ` · ${escapeHtml(i.grade)}` : ''} <span class="nid">${escapeHtml(i.id)}</span>
+          </div>`).join('')}
+    </div>
+  </div>
+
+  ${selected ? renderLeadInstructorDetail(selected) : ''}
+
+  <div class="panel">
+    <h2>Team summary</h2>
+    ${renderTeamSummary(instructors)}
+  </div>
+  `;
+}
+
+function renderLeadInstructorDetail(selected){
+  const list = (state.data.notes[selected.id] || []).slice().sort((a,b)=> b.date.localeCompare(a.date));
+  return `
+  <div class="panel">
+    <div class="instructor-card">
+      <div>
+        <div class="name">${escapeHtml(selected.name)}</div>
+        <div class="nid">${escapeHtml(selected.id)}${selected.tutorId ? ' · ' + escapeHtml(selected.tutorId) : ''}${selected.grade ? ' · ' + escapeHtml(selected.grade) : ''}</div>
+      </div>
+      <div><span class="status-pill">${list.length} notes</span></div>
+    </div>
+    <h2>Notes history</h2>
+    ${list.length === 0 ? '<div class="empty">No notes yet for this instructor</div>' :
+      list.map(n => renderTicket(n, null, null)).join('')}
+  </div>`;
+}
+
+function renderLeaderMode(){
+  if(!state.leaderUnlocked) return '<div style="min-height:200px"></div>';
+
+  const teams = state.data.teams || [];
+  const filterTeamId = state.leaderTeamFilter || 'all';
+  const allInstructors = state.data.instructors.slice();
+  const filtered = filterTeamId === 'all' ? allInstructors : allInstructors.filter(i=> i.teamId === filterTeamId);
+  const selected = filtered.find(i=>i.id === state.selectedInstructorId) || null;
+  const leaderAcc = state.data.leaderAccount || DEFAULT_LEADER;
+
+  return `
+  <div class="panel">
+    <h2><span class="eyebrow">Account</span> Leader login</h2>
+    <div class="row">
+      <div>
+        <label>New username</label>
+        <input type="text" id="leaderAccUsername" value="${escapeHtml(leaderAcc.username)}">
+      </div>
+      <div>
+        <label>New password</label>
+        <input type="password" id="leaderAccPassword" placeholder="Leave blank to keep current">
+      </div>
+      <div style="flex:0 0 auto; align-self:flex-end">
+        <button class="btn btn-ghost" id="updateLeaderAccountBtn">Save</button>
+      </div>
+    </div>
+  </div>
+
+  <div class="panel">
+    <h2><span class="eyebrow">Overview</span> All teams</h2>
+    <div class="row">
+      <div>
+        <label>Filter by team</label>
+        <select id="leaderTeamFilter">
+          <option value="all" ${filterTeamId==='all'?'selected':''}>All teams</option>
+          ${teams.map(t=>`<option value="${t.id}" ${filterTeamId===t.id?'selected':''}>${escapeHtml(t.label)}</option>`).join('')}
+        </select>
+      </div>
+    </div>
+  </div>
+
+  <div class="panel">
+    <h2>Instructor roster (${filtered.length})</h2>
+    <div class="search-bar">
+      <input type="text" id="rosterFilter" placeholder="Search by name or national ID...">
+    </div>
+    <div class="roster" id="rosterList">
+      ${filtered.length === 0 ? '<div class="empty">No instructors found</div>' :
+        filtered.map(i => `
+          <div class="chip ${i.id===state.selectedInstructorId?'selected':''}" data-id="${i.id}">
+            ${escapeHtml(i.name)}${i.grade ? ` · ${escapeHtml(i.grade)}` : ''} · ${escapeHtml(teamLabelFor(i.teamId))} <span class="nid">${escapeHtml(i.id)}</span>
+          </div>`).join('')}
+    </div>
+  </div>
+
+  ${selected ? renderLeadInstructorDetail(selected) : ''}
+
+  <div class="panel">
+    <h2>All teams summary</h2>
+    ${renderAllTeamsSummary(filtered)}
+  </div>
+  `;
+}
+
+function renderAllTeamsSummary(instructors){
+  const { notes } = state.data;
+  if(instructors.length === 0) return '<div class="empty">No instructors to show</div>';
+  let rows = instructors.map(i=>{
+    const list = notes[i.id] || [];
+    const avg = list.length ? (list.reduce((s,n)=> s + (PERF_SCORE[n.performance]||0), 0) / list.length) : 0;
+    const last = list.length ? list.slice().sort((a,b)=> b.date.localeCompare(a.date))[0].date : '—';
+    return { name:i.name, id:i.id, grade:i.grade||'', team: teamLabelFor(i.teamId), count:list.length, avg, last };
+  });
+  rows = rows.sort((a,b)=>{
+    if(a.count === 0 && b.count === 0) return 0;
+    if(a.count === 0) return 1;
+    if(b.count === 0) return -1;
+    return a.avg - b.avg;
+  });
+  return `
+  <table class="summary">
+    <thead><tr>
+      <th>Name</th><th>Team</th><th>Grade</th><th>Notes</th><th>Avg. performance</th><th>Last note</th>
+    </tr></thead>
+    <tbody>
+      ${rows.map(r=>`
+        <tr>
+          <td>${escapeHtml(r.name)}</td>
+          <td>${escapeHtml(r.team)}</td>
+          <td>${escapeHtml(r.grade)}</td>
+          <td>${r.count}</td>
+          <td>${r.count ? r.avg.toFixed(1) + ' / 4' : '—'}</td>
+          <td>${r.last}</td>
+        </tr>`).join('')}
+    </tbody>
+  </table>`;
+}
+
+function handleUpdateLeaderAccount(){
+  if(!state.data.leaderAccount) state.data.leaderAccount = {...DEFAULT_LEADER};
+  const newUsername = document.getElementById('leaderAccUsername').value.trim();
+  const newPassword = document.getElementById('leaderAccPassword').value;
+  if(!newUsername){ showToast('Username cannot be empty'); return; }
+  state.data.leaderAccount.username = newUsername;
+  if(newPassword) state.data.leaderAccount.password = newPassword;
+  saveData();
+  render();
+  showToast('Leader account updated');
+}
+
+function attachLeaderEvents(){
+  const updateLeaderAccountBtn = document.getElementById('updateLeaderAccountBtn');
+  if(updateLeaderAccountBtn) updateLeaderAccountBtn.onclick = handleUpdateLeaderAccount;
+
+  const teamFilter = document.getElementById('leaderTeamFilter');
+  if(teamFilter) teamFilter.onchange = ()=>{
+    state.leaderTeamFilter = teamFilter.value;
+    state.selectedInstructorId = null;
+    render();
+  };
+
+  const filter = document.getElementById('rosterFilter');
+  if(filter) filter.oninput = ()=>{
+    const q = filter.value.trim().toLowerCase();
+    document.querySelectorAll('#rosterList .chip').forEach(chip=>{
+      const text = chip.textContent.toLowerCase();
+      chip.style.display = text.includes(q) ? 'flex' : 'none';
+    });
+  };
+
+  document.querySelectorAll('#rosterList .chip').forEach(chip=>{
+    chip.onclick = ()=>{
+      state.selectedInstructorId = chip.dataset.id;
+      render();
+    };
+  });
+}
+
 function attachAdminEvents(){
-  const addAdminBtn = document.getElementById('addAdminBtn');
-  if(addAdminBtn) addAdminBtn.onclick = handleAddAdmin;
+  document.querySelectorAll('[data-copy]').forEach(btn=>{
+    btn.onclick = ()=>{
+      const input = document.getElementById(btn.dataset.copy);
+      if(!input) return;
+      input.select();
+      input.setSelectionRange(0, 99999);
+      const done = ()=> showToast('Link copied');
+      if(navigator.clipboard && navigator.clipboard.writeText){
+        navigator.clipboard.writeText(input.value).then(done).catch(()=>{
+          try{ document.execCommand('copy'); done(); }catch(e){ showToast('Could not copy — select and copy manually'); }
+        });
+      } else {
+        try{ document.execCommand('copy'); done(); }catch(e){ showToast('Could not copy — select and copy manually'); }
+      }
+    };
+  });
+
+  const updateAccountBtn = document.getElementById('updateAccountBtn');
+  if(updateAccountBtn) updateAccountBtn.onclick = handleUpdateAccount;
+
+  const importBtn = document.getElementById('importBtn');
+  if(importBtn) importBtn.onclick = handleImport;
+
+  const importFileBtn = document.getElementById('importFileBtn');
+  if(importFileBtn) importFileBtn.onclick = handleImportFile;
+
+  const importDefaultBtn = document.getElementById('importDefaultBtn');
+  if(importDefaultBtn) importDefaultBtn.onclick = handleImportDefaultTeam;
 
   const exportBtn = document.getElementById('exportBtn');
   if(exportBtn) exportBtn.onclick = handleExport;
 
-  const fileDrop = document.getElementById('fileDrop');
-  const csvFile = document.getElementById('csvFile');
-  if(fileDrop && csvFile){ fileDrop.onclick = ()=> csvFile.click(); csvFile.onchange = handleCsvFile; }
-
-  const addInstructorBtn = document.getElementById('addInstructorBtn');
-  if(addInstructorBtn) addInstructorBtn.onclick = handleAddInstructor;
-
-  const deleteInstructorBtn = document.getElementById('deleteInstructorBtn');
-  if(deleteInstructorBtn) deleteInstructorBtn.onclick = handleDeleteInstructor;
-
-  const rosterToggle = document.getElementById('rosterToggle');
-  if(rosterToggle) rosterToggle.onclick = ()=>{ state.rosterCollapsed = !state.rosterCollapsed; render(); };
-
-  const summaryToggle = document.getElementById('summaryToggle');
-  if(summaryToggle) summaryToggle.onclick = ()=>{ state.summaryCollapsed = !state.summaryCollapsed; render(); };
-
   const filter = document.getElementById('rosterFilter');
-  const doRosterSearch = ()=>{
-    state.rosterQueryDraft = filter.value;
-    state.rosterQueryApplied = filter.value.trim();
-    render();
+  if(filter) filter.oninput = ()=>{
+    const q = filter.value.trim().toLowerCase();
+    document.querySelectorAll('#rosterList .chip').forEach(chip=>{
+      const text = chip.textContent.toLowerCase();
+      chip.style.display = text.includes(q) ? 'flex' : 'none';
+    });
   };
-  if(filter){
-    filter.oninput = ()=>{ state.rosterQueryDraft = filter.value; };
-    filter.addEventListener('keydown', e=>{ if(e.key==='Enter') doRosterSearch(); });
-  }
-  const searchBtn = document.getElementById('rosterSearchBtn');
-  if(searchBtn) searchBtn.onclick = doRosterSearch;
-  const clearBtn = document.getElementById('rosterClearBtn');
-  if(clearBtn) clearBtn.onclick = ()=>{ state.rosterQueryDraft=''; state.rosterQueryApplied=''; render(); };
 
-  document.querySelectorAll('#rosterList .roster-row').forEach(row=>{
-    row.onclick = ()=>{
-      const id = row.dataset.id;
-      if(state.selectedInstructorId === id){ state.selectedInstructorId = null; }
-      else{ state.selectedInstructorId = id; state.noteDraft = freshDraft(); }
+  document.querySelectorAll('#rosterList .chip').forEach(chip=>{
+    chip.onclick = ()=>{
+      state.selectedInstructorId = chip.dataset.id;
       render();
     };
   });
@@ -871,429 +1061,225 @@ function attachAdminEvents(){
   const addNoteBtn = document.getElementById('addNoteBtn');
   if(addNoteBtn) addNoteBtn.onclick = handleAddNote;
 
-  const noteDate = document.getElementById('noteDate');
-  if(noteDate) noteDate.oninput = ()=>{ state.noteDraft.date = noteDate.value; };
-  const noteSession = document.getElementById('noteSession');
-  if(noteSession) noteSession.oninput = ()=>{ state.noteDraft.session = noteSession.value; };
-  const qualityNote = document.getElementById('qualityNote');
-  if(qualityNote) qualityNote.oninput = ()=>{ state.noteDraft.qualityNote = qualityNote.value; };
-  const instructorMessage = document.getElementById('instructorMessage');
-  if(instructorMessage) instructorMessage.oninput = ()=>{ state.noteDraft.instructorMessage = instructorMessage.value; };
-  const improvementSelect = document.getElementById('improvementSelect');
-  if(improvementSelect) improvementSelect.onchange = ()=>{
-    state.noteDraft.improvements = Array.from(improvementSelect.selectedOptions).map(o=>o.value);
-  };
-
-  const starGroup = document.getElementById('overallStars');
-  if(starGroup) starGroup.querySelectorAll('.star').forEach(star=>{
-    star.onclick = ()=>{ state.noteDraft.overall = parseInt(star.dataset.val, 10); render(); };
-  });
-
   document.querySelectorAll('[data-del-instructor]').forEach(btn=>{
     btn.onclick = ()=>{
       const iid = btn.dataset.delInstructor;
+      const owner = state.data.instructors.find(i=>i.id === iid);
+      if(!owner || owner.teamId !== state.currentTeamId) return;
       const idx = parseInt(btn.dataset.delIdx, 10);
       state.data.notes[iid].splice(idx, 1);
-      saveData(); render();
+      saveData();
+      render();
       showToast('Note deleted');
     };
   });
 }
 
-function handleAddInstructor(){
-  const id = document.getElementById('manualId').value.trim();
-  const name = document.getElementById('manualName').value.trim();
-  const nid = document.getElementById('manualNid').value.trim().replace(/[^\d]/g, '');
-  const phone = document.getElementById('manualPhone').value.trim().replace(/[^\d]/g, '');
-  const email = document.getElementById('manualEmail').value.trim();
-  const myTeam = (state.data.admins.find(a=>a.name === state.currentAdminName)||{}).team || '';
-
-  if(!id || !name){ showToast('Tutor ID and Name are required'); return; }
-  if(state.data.instructors.find(i=>i.id.toLowerCase() === id.toLowerCase())){
-    showToast('An instructor with this Tutor ID already exists'); return;
-  }
-  state.data.instructors.push({ id, name, nid, phone, email, team: myTeam });
-  if(!state.data.notes[id]) state.data.notes[id] = [];
-  saveData(); render();
-  showToast(`${name} was added to ${myTeam}`);
+function handleUpdateAccount(){
+  const team = state.data.teams.find(t=>t.id === state.currentTeamId);
+  if(!team) return;
+  const newUsername = document.getElementById('accUsername').value.trim();
+  const newPassword = document.getElementById('accPassword').value;
+  if(!newUsername){ showToast('Username cannot be empty'); return; }
+  const clash = state.data.teams.find(t=> t.id !== team.id && t.username.toLowerCase() === newUsername.toLowerCase());
+  if(clash){ showToast('That username is already used by another team'); return; }
+  team.username = newUsername;
+  if(newPassword) team.password = newPassword;
+  state.currentTeamLabel = team.label;
+  saveData();
+  render();
+  showToast('Account updated');
 }
 
-function handleDeleteInstructor(){
-  const id = this.dataset ? this.dataset.instructorId : null;
-  const btn = document.getElementById('deleteInstructorBtn');
-  const targetId = (btn && btn.dataset.instructorId) || id;
-  if(!targetId) return;
-  const inst = state.data.instructors.find(i=>i.id === targetId);
-  const noteCount = (state.data.notes[targetId] || []).length;
-  const ok = window.confirm(`Delete ${inst ? inst.name : targetId}? This will permanently remove them and their ${noteCount} note(s). This cannot be undone.`);
-  if(!ok) return;
-  state.data.instructors = state.data.instructors.filter(i => i.id !== targetId);
-  delete state.data.notes[targetId];
-  if(state.selectedInstructorId === targetId) state.selectedInstructorId = null;
-  if(state.leadSelectedInstructorId === targetId) state.leadSelectedInstructorId = null;
-  saveData(); render();
-  showToast('Instructor deleted');
-}
-
-function handleAddAdmin(){
-  const name = document.getElementById('newAdminName').value.trim();
-  const team = document.getElementById('newAdminTeam').value.trim();
-  const pin = document.getElementById('newAdminPin').value.trim();
-  if(!name || !pin || !team){ showToast('Enter a name, team, and PIN'); return; }
-  if(state.data.admins.find(a=>a.name.toLowerCase() === name.toLowerCase())){
-    showToast('An admin with this name already exists'); return;
-  }
-  state.data.admins.push({ name, pin, team });
-  saveData(); render();
-  showToast(`${name} was added as an admin for ${team}`);
-}
-
-function detectDelimiter(firstLine){
-  const candidates = [',', ';', '\t'];
-  let best = ',', bestCount = -1;
-  candidates.forEach(d=>{
-    const count = firstLine.split(d).length;
-    if(count > bestCount){ bestCount = count; best = d; }
-  });
-  return best;
-}
-
-function detectHeaderMap(headerParts){
-  const norm = headerParts.map(h => (h||'').toLowerCase().replace(/[^a-z]/g, ''));
-  let idIdx=-1, nameIdx=-1, nidIdx=-1, phoneIdx=-1, emailIdx=-1;
-  norm.forEach((h, idx)=>{
-    if(nidIdx<0 && (h.includes('nationalid') || h.includes('nid') || h.includes('nationalno'))){ nidIdx = idx; return; }
-    if(idIdx<0 && h.includes('id')){ idIdx = idx; return; }
-    if(nameIdx<0 && h.includes('name') && !h.includes('mentor') && !h.includes('team')){ nameIdx = idx; return; }
-    if(phoneIdx<0 && (h.includes('phone') || h.includes('mobile'))){ phoneIdx = idx; return; }
-    if(emailIdx<0 && (h.includes('email') || h.includes('mail'))){ emailIdx = idx; return; }
-  });
-  if(idIdx >= 0 && nameIdx >= 0){
-    return { idIdx, nameIdx, nidIdx, phoneIdx, emailIdx };
-  }
-  return null;
-}
-
-function extractRowByMap(parts, map){
-  const get = idx => (idx >= 0 && idx < parts.length) ? parts[idx].trim().replace(/^"|"$/g,'') : '';
-  return {
-    tutorId: get(map.idIdx),
-    name: get(map.nameIdx),
-    nid: get(map.nidIdx).replace(/[^\d]/g, ''),
-    phone: get(map.phoneIdx).replace(/[^\d]/g, ''),
-    email: get(map.emailIdx),
-  };
-}
-
-function classifyRow(parts){
-  let tutorId = '', nid = '', phone = '', email = '', name = '';
-  const used = new Array(parts.length).fill(false);
-
-  parts.forEach((p, idx)=>{
-    if(/@/.test(p)){ email = p; used[idx] = true; }
-  });
-  parts.forEach((p, idx)=>{
-    if(used[idx]) return;
-    if(/^t[\s\-_]?\d+$/i.test(p.replace(/\s+/g,''))){ tutorId = p.trim(); used[idx] = true; }
-  });
-  // remaining numeric-heavy fields: longest digit run = NID (14 digits), medium = phone
-  let bestDigits = '', bestIdx = -1;
-  parts.forEach((p, idx)=>{
-    if(used[idx]) return;
-    const digits = p.replace(/[^\d]/g, '');
-    if(digits.length >= 12 && digits.length > bestDigits.length){ bestDigits = digits; bestIdx = idx; }
-  });
-  if(bestIdx >= 0){ nid = bestDigits; used[bestIdx] = true; }
-
-  parts.forEach((p, idx)=>{
-    if(used[idx]) return;
-    const digits = p.replace(/[^\d]/g, '');
-    if(digits.length >= 7 && digits.length <= 11 && !phone){ phone = digits; used[idx] = true; }
-  });
-
-  // name = first remaining field containing letters
-  parts.forEach((p, idx)=>{
-    if(used[idx] || name) return;
-    if(/[A-Za-zء-ي]/.test(p)){ name = p.trim(); used[idx] = true; }
-  });
-
-  return { tutorId, name, nid, phone, email };
-}
-
-function handleCsvFile(e){
-  const file = e.target.files[0];
-  if(!file) return;
-  state.importFileName = file.name;
-  const myTeam = (state.data.admins.find(a=>a.name === state.currentAdminName)||{}).team || '';
-  const reader = new FileReader();
-  reader.onload = (ev)=>{
-    let text = ev.target.result || '';
-    text = text.replace(/^\uFEFF/, '');
-    const lines = text.split(/\r?\n/).map(l=>l.trim()).filter(Boolean);
-    if(lines.length === 0){ showToast('This file looks empty'); return; }
-    const delimiter = detectDelimiter(lines[0]);
-    const headerParts = lines[0].split(delimiter).map(p=>p.trim().replace(/^"|"$/g,''));
-    const map = detectHeaderMap(headerParts);
-    const dataLines = map ? lines.slice(1) : lines;
-    let added = 0, skipped = 0;
-    dataLines.forEach(line=>{
-      const parts = line.split(delimiter).map(p=>p.trim().replace(/^"|"$/g,''));
-      if(parts.length < 2){ skipped++; return; }
-      const row = map ? extractRowByMap(parts, map) : classifyRow(parts);
-      if(!row.tutorId || !row.name){ skipped++; return; } // catches header rows and blank names too
-      const exists = state.data.instructors.find(i=>i.id === row.tutorId);
-      if(!exists){
-        state.data.instructors.push({
-          id: row.tutorId, name: row.name, nid: row.nid, phone: row.phone, email: row.email, team: myTeam
-        });
-        if(!state.data.notes[row.tutorId]) state.data.notes[row.tutorId] = [];
-        added++;
-      }
-    });
-    saveData(); render();
-    if(added > 0){
-      showToast(`Imported ${added} instructor(s) into ${myTeam}${skipped ? ` (${skipped} row(s) skipped)` : ''}`);
-    }else{
-      showToast('No new instructors found — make sure the file has a Tutor ID (T-xxxxx) and a Name column');
+function splitCsvLine(line){
+  const result = [];
+  let cur = '', inQ = false;
+  for(let i=0;i<line.length;i++){
+    const c = line[i];
+    if(c === '"'){
+      if(inQ && line[i+1] === '"'){ cur += '"'; i++; }
+      else inQ = !inQ;
+    } else if(c === ',' && !inQ){
+      result.push(cur); cur = '';
+    } else {
+      cur += c;
     }
+  }
+  result.push(cur);
+  return result.map(s=>s.trim());
+}
+
+function parseImportText(text){
+  const lines = text.split('\n').map(l=>l.replace(/\r$/,'')).filter(l=>l.trim().length>0);
+  if(lines.length === 0) return [];
+  const rows = lines.map(splitCsvLine);
+  const firstLower = rows[0].map(c=>c.toLowerCase());
+  const looksLikeHeader = firstLower.some(c=>c.includes('name')) && firstLower.some(c=>c.includes('id'));
+
+  let colMap = null, startIdx = 0;
+  if(looksLikeHeader){
+    colMap = {};
+    firstLower.forEach((c, idx)=>{
+      if(c.includes('tutor') && c.includes('id')) colMap.tutorId = idx;
+      else if(c.includes('nid') || c.includes('national')) colMap.nid = idx;
+      else if(c.includes('phone')) colMap.phone = idx;
+      else if(c.includes('grade')) colMap.grade = idx;
+      else if(c.includes('mentor') || c.includes('team')) colMap.team = idx;
+      else if(c.includes('name')) colMap.name = idx;
+    });
+    startIdx = 1;
+  }
+
+  const out = [];
+  for(let r = startIdx; r < rows.length; r++){
+    const cols = rows[r];
+    if(cols.length < 2) continue;
+    let rec;
+    if(colMap){
+      rec = {
+        name: colMap.name != null ? cols[colMap.name] : '',
+        nid: colMap.nid != null ? cols[colMap.nid] : '',
+        tutorId: colMap.tutorId != null ? cols[colMap.tutorId] : '',
+        phone: colMap.phone != null ? cols[colMap.phone] : '',
+        grade: colMap.grade != null ? cols[colMap.grade] : '',
+        team: colMap.team != null ? cols[colMap.team] : '',
+      };
+    } else {
+      rec = { name: cols[0], nid: cols[1], tutorId: cols[2]||'', phone: cols[3]||'', grade: cols[4]||'', team: cols[5]||'' };
+    }
+    if(rec.name && rec.nid) out.push(rec);
+  }
+  return out;
+}
+
+function addInstructorRecords(records, teamId){
+  let added = 0, skipped = 0;
+  records.forEach(rec=>{
+    const nid = String(rec.nid).trim();
+    if(!nid){ skipped++; return; }
+    const exists = state.data.instructors.find(i=>i.id === nid);
+    if(exists){ skipped++; return; }
+    state.data.instructors.push({
+      id: nid,
+      name: rec.name,
+      tutorId: rec.tutorId || '',
+      phone: rec.phone || '',
+      grade: rec.grade || '',
+      teamId: teamId,
+    });
+    if(!state.data.notes[nid]) state.data.notes[nid] = [];
+    added++;
+  });
+  return { added, skipped };
+}
+
+function handleImport(){
+  const box = document.getElementById('importBox');
+  const records = parseImportText(box.value);
+  if(records.length === 0){ showToast('No valid rows found — check the format'); return; }
+  const { added, skipped } = addInstructorRecords(records, state.currentTeamId);
+  saveData();
+  box.value = '';
+  render();
+  showToast(added > 0 ? `Imported ${added} instructor(s)${skipped?` · ${skipped} already existed`:''}` : 'All those national IDs already exist');
+}
+
+function handleImportFile(){
+  const input = document.getElementById('importFileInput');
+  if(!input || !input.files || !input.files[0]){ showToast('Choose a CSV file first'); return; }
+  const file = input.files[0];
+  const reader = new FileReader();
+  reader.onload = (e)=>{
+    const text = e.target.result;
+    const records = parseImportText(text);
+    if(records.length === 0){ showToast('No valid rows found in the file'); return; }
+    const { added, skipped } = addInstructorRecords(records, state.currentTeamId);
+    saveData();
+    input.value = '';
+    render();
+    showToast(added > 0 ? `Imported ${added} instructor(s) from file${skipped?` · ${skipped} already existed`:''}` : 'All those national IDs already exist');
   };
-  reader.readAsText(file);
+  reader.onerror = ()=> showToast('Could not read the file');
+  reader.readAsText(file, 'UTF-8');
+}
+
+function handleImportDefaultTeam(){
+  if(state.currentTeamId !== 't1') return;
+  const records = DEFAULT_TEAM.map(row => ({
+    tutorId: row[0], name: row[1], phone: row[2], nid: row[3], grade: row[4],
+  }));
+  const { added, skipped } = addInstructorRecords(records, 't1');
+  saveData();
+  render();
+  showToast(added > 0 ? `Imported ${added} instructor(s) from your team list${skipped?` · ${skipped} already existed`:''}` : 'Your team is already fully imported');
 }
 
 function handleAddNote(){
   const id = state.selectedInstructorId;
   if(!id) return;
-  const d = state.noteDraft;
-  if(!d.date){ showToast('Date is required'); return; }
-  if(!d.overall){ showToast('Please give an overall star rating'); return; }
+  const owner = state.data.instructors.find(i=>i.id === id);
+  if(!owner || owner.teamId !== state.currentTeamId) return;
+  const date = document.getElementById('noteDate').value;
+  const session = document.getElementById('noteSession').value.trim();
+  const performance = document.getElementById('notePerf').value;
+  const comment = document.getElementById('noteComment').value.trim();
+  if(!date || !comment){
+    showToast('Date and comment are required');
+    return;
+  }
   if(!state.data.notes[id]) state.data.notes[id] = [];
-  state.data.notes[id].push({
-    date: d.date, session: d.session, overall: d.overall,
-    improvements: [...d.improvements],
-    qualityNote: d.qualityNote.trim(),
-    instructorMessage: d.instructorMessage.trim(),
-    addedBy: state.currentAdminName, createdAt: Date.now()
-  });
+  state.data.notes[id].push({ date, session, performance, comment, addedBy: state.currentTeamLabel, createdAt: Date.now() });
   saveData();
-  state.noteDraft = freshDraft();
   render();
   showToast('Note saved');
 }
 
 function handleExport(){
-  const myTeam = (state.data.admins.find(a=>a.name === state.currentAdminName)||{}).team || '';
-  const instructors = state.data.instructors.filter(i => i.team === myTeam);
-  const header = ['Tutor ID','Name','National ID','Phone','Email','Team','Date','Session','Overall (1-5)','Needs to improve','Note for Quality','Message to Instructor','Added by'];
-  let csv = '\uFEFF' + header.join(',') + '\n';
+  const { notes } = state.data;
+  const instructors = state.data.instructors.filter(i=> i.teamId === state.currentTeamId);
+  let csv = '\uFEFF' + ['Name','National ID','Tutor ID','Phone','Grade','Date','Session','Performance','Comment','Added by'].join(',') + '\n';
   instructors.forEach(i=>{
-    const list = state.data.notes[i.id] || [];
+    const list = notes[i.id] || [];
     if(list.length === 0){
-      csv += [i.id, i.name, i.nid||'', i.phone||'', i.email||'', i.team||'', '', '', '', '', '', '', ''].map(csvEscape).join(',') + '\n';
+      csv += [i.name, i.id, i.tutorId||'', i.phone||'', i.grade||'', '', '', '', '', ''].map(csvEscape).join(',') + '\n';
     }
     list.forEach(n=>{
-      csv += [i.id, i.name, i.nid||'', i.phone||'', i.email||'', i.team||'', n.date, n.session||'', n.overall||'', (n.improvements||[]).join('; '), n.qualityNote||'', n.instructorMessage||'', n.addedBy||''].map(csvEscape).join(',') + '\n';
+      csv += [i.name, i.id, i.tutorId||'', i.phone||'', i.grade||'', n.date, n.session||'', perfLabel(n.performance), n.comment, n.addedBy||''].map(csvEscape).join(',') + '\n';
     });
   });
   const blob = new Blob([csv], { type: 'text/csv;charset=utf-8;' });
   const url = URL.createObjectURL(blob);
   const a = document.createElement('a');
   a.href = url;
-  a.download = `${myTeam.replace(/\s+/g,'-')}-performance-${new Date().toISOString().slice(0,10)}.csv`;
+  a.download = `team-performance-${new Date().toISOString().slice(0,10)}.csv`;
   a.click();
   URL.revokeObjectURL(url);
 }
 
 function csvEscape(v){
   const s = String(v ?? '');
-  if(s.includes(',') || s.includes('"') || s.includes('\n')){ return '"' + s.replace(/"/g,'""') + '"'; }
+  if(s.includes(',') || s.includes('"') || s.includes('\n')){
+    return '"' + s.replace(/"/g,'""') + '"';
+  }
   return s;
 }
 
-// ---------- TEAM LEAD MODE ----------
-function renderLead(){
-  if(!state.leadUnlocked) return '<div style="min-height:200px"></div>';
-  const { admins, instructors, notes } = state.data;
-  return `
-  <div class="panel">
-    <h2><span class="eyebrow purple">Overview</span> All teams
-      <button class="btn btn-ghost" id="leadRefreshBtn" style="margin-left:auto; padding:5px 12px; font-size:12px">↻ Refresh</button>
-    </h2>
-    <div class="row">
-      ${admins.map(a=>{
-        const teamInstructors = instructors.filter(i=>i.team === a.team);
-        const totalNotes = teamInstructors.reduce((s,i)=> s + (notes[i.id]||[]).length, 0);
-        return `<div style="flex:1;min-width:150px;border:1px solid var(--line);border-radius:10px;padding:12px 14px;">
-          <div style="font-size:12px;color:var(--muted)">${escapeHtml(a.team||'')}</div>
-          <div style="font-weight:700;font-size:15px;color:var(--ink)">${escapeHtml(a.name)}</div>
-          <div style="font-size:12px;color:var(--muted);margin-top:4px">${teamInstructors.length} instructors · ${totalNotes} notes</div>
-        </div>`;
-      }).join('')}
-    </div>
-  </div>
-
-  <div class="panel">
-    <h2><span class="eyebrow purple">Search</span> Find an instructor across all teams</h2>
-    <div class="search-bar">
-      <input type="text" id="leadSearchInput" placeholder="Search by Tutor ID, name, or National ID..." value="${escapeHtml(state.leadQueryDraft||'')}">
-      <button class="btn btn-primary" id="leadSearchBtn" style="flex:0 0 auto">Search</button>
-      ${state.leadQueryApplied ? `<button class="btn btn-ghost" id="leadSearchClearBtn" style="flex:0 0 auto">Clear</button>` : ''}
-    </div>
-    ${state.leadQueryApplied ? renderLeadSearchResults() : ''}
-  </div>
-
-  ${admins.map(a => renderLeadTeamBlock(a)).join('')}
-  `;
-}
-
-function renderLeadSearchResults(){
-  const qRaw = (state.leadQueryApplied||'').trim();
-  const q = qRaw.toLowerCase();
-  const qDigits = qRaw.replace(/[^\d]/g, '');
-  const matches = state.data.instructors.filter(i =>
-    i.name.toLowerCase().includes(q) ||
-    i.id.toLowerCase().includes(q) ||
-    (qDigits && (i.nid||'').includes(qDigits))
-  );
-  if(matches.length === 0){
-    return `<div class="empty">No matches for "${escapeHtml(qRaw)}" in any team</div>`;
-  }
-  return `
-  <div class="roster" style="margin-top:12px;">
-    ${matches.map(i=>{
-      const list = state.data.notes[i.id] || [];
-      const avg = avgScore(list);
-      const isSel = state.leadSelectedInstructorId === i.id;
-      return `
-      <div class="roster-row ${isSel?'selected':''}" data-lead-search-id="${escapeHtml(i.id)}" data-lead-search-team="${escapeHtml(i.team||'')}">
-        <div class="left">
-          <span class="avatar">${initials(i.name)}</span>
-          <div>
-            <div class="name">${escapeHtml(i.name)}</div>
-            <div style="font-size:11px;color:var(--muted);">${escapeHtml(i.team||'—')} · ID: ${escapeHtml(i.id)}</div>
-          </div>
-        </div>
-        <div class="left">
-          ${list.length ? renderStarsStatic(avg, true) : '<span class="count-pill">No notes</span>'}
-          <span class="chevron">${isSel?'▲':'▼'}</span>
-        </div>
-      </div>
-      ${isSel ? renderLeadInstructorDetail(i) : ''}
-      `;
-    }).join('')}
-  </div>`;
-}
-
-function renderLeadTeamBlock(admin){
-  const teamInstructors = state.data.instructors.filter(i => i.team === admin.team);
-  const isOpen = !!state.leadTeamOpen[admin.team];
-  const totalNotes = teamInstructors.reduce((s,i)=> s + (state.data.notes[i.id]||[]).length, 0);
-  return `
-  <div class="panel">
-    <div class="team-block">
-      <div class="team-head" data-lead-team-toggle="${escapeHtml(admin.team||'')}" style="cursor:pointer; user-select:none">
-        <span class="tname">${escapeHtml(admin.team||'')} <span style="color:var(--muted); font-weight:600; font-size:12px">(${teamInstructors.length} instructors · ${totalNotes} notes)</span></span>
-        <span class="tlead">Led by ${escapeHtml(admin.name)} &nbsp; ${isOpen ? '▲ Hide' : '▼ Show'}</span>
-      </div>
-      ${isOpen ? `
-      <div style="margin-bottom:14px;">
-        <div style="font-size:11px;font-weight:700;color:var(--muted);text-transform:uppercase;letter-spacing:.02em;margin-bottom:8px;">Most common areas to improve</div>
-        ${renderImprovementChart(teamInstructors)}
-      </div>
-      <div class="roster">
-        ${teamInstructors.length === 0 ? '<div class="empty">No instructors imported into this team yet</div>' :
-          teamInstructors.map(i => {
-            const count = (state.data.notes[i.id]||[]).length;
-            const isSel = state.leadSelectedInstructorId === i.id;
-            return `
-            <div class="roster-row ${isSel?'selected':''}" data-lead-id="${i.id}">
-              <div class="left"><span class="avatar">${initials(i.name)}</span><span class="name">${escapeHtml(i.name)}</span></div>
-              <div class="left"><span class="count-pill">${count} notes</span><span class="chevron">${isSel?'▲':'▼'}</span></div>
-            </div>
-            ${isSel ? renderLeadInstructorDetail(i) : ''}
-            `;
-          }).join('')}
-      </div>
-      ` : ''}
-    </div>
-  </div>`;
-}
-
-function renderLeadInstructorDetail(i){
-  const list = (state.data.notes[i.id] || []).slice().sort((a,b)=> b.date.localeCompare(a.date));
-  return `
-  <div style="padding:10px 4px 4px">
-    <div class="instructor-card">
-      <div>
-        <div class="name">${escapeHtml(i.name)}</div>
-        <div class="idline"><span>ID: ${escapeHtml(i.id)}</span><span>NID: ${escapeHtml(i.nid||'—')}</span></div>
-      </div>
-      <div><span class="status-pill">${list.length} notes</span></div>
-    </div>
-    ${renderRatingTrend(i.id)}
-    ${list.length === 0 ? '<div class="empty">No notes yet</div>' :
-      list.map(n => renderTicket(n, null, null, 'lead')).join('')}
-  </div>`;
-}
-
-function attachLeadEvents(){
-  const refreshBtn = document.getElementById('leadRefreshBtn');
-  if(refreshBtn) refreshBtn.onclick = async ()=>{ state.loading = true; render(); await loadData(); showToast('Refreshed'); };
-  document.querySelectorAll('[data-lead-team-toggle]').forEach(head=>{
-    head.onclick = ()=>{
-      const team = head.dataset.leadTeamToggle;
-      state.leadTeamOpen[team] = !state.leadTeamOpen[team];
-      render();
-    };
-  });
-  document.querySelectorAll('[data-lead-id]').forEach(row=>{
-    row.onclick = ()=>{
-      const id = row.dataset.leadId;
-      state.leadSelectedInstructorId = state.leadSelectedInstructorId === id ? null : id;
-      render();
-    };
-  });
-
-  const leadSearchInput = document.getElementById('leadSearchInput');
-  const doLeadSearch = ()=>{
-    state.leadQueryDraft = leadSearchInput.value;
-    state.leadQueryApplied = leadSearchInput.value.trim();
-    render();
-  };
-  if(leadSearchInput){
-    leadSearchInput.oninput = ()=>{ state.leadQueryDraft = leadSearchInput.value; };
-    leadSearchInput.addEventListener('keydown', e=>{ if(e.key==='Enter') doLeadSearch(); });
-  }
-  const leadSearchBtn = document.getElementById('leadSearchBtn');
-  if(leadSearchBtn) leadSearchBtn.onclick = doLeadSearch;
-  const leadSearchClearBtn = document.getElementById('leadSearchClearBtn');
-  if(leadSearchClearBtn) leadSearchClearBtn.onclick = ()=>{ state.leadQueryDraft=''; state.leadQueryApplied=''; render(); };
-
-  document.querySelectorAll('[data-lead-search-id]').forEach(row=>{
-    row.onclick = ()=>{
-      const id = row.dataset.leadSearchId;
-      const team = row.dataset.leadSearchTeam;
-      state.leadSelectedInstructorId = state.leadSelectedInstructorId === id ? null : id;
-      if(state.leadSelectedInstructorId){ state.leadTeamOpen[team] = true; }
-      render();
-    };
-  });
-}
-
-// ---------- INSTRUCTOR MODE ----------
 function renderInstructor(){
-  const found = state.lookupResultId && state.lookupResultId !== 'notfound' ? state.data.instructors.find(i=>i.nid === state.lookupResultId) : null;
+  const found = state.lookupResultId && state.lookupResultId !== 'notfound' ? state.data.instructors.find(i=>i.id === state.lookupResultId) : null;
   return `
   <div class="panel">
     <h2>Instructor sign-in</h2>
-    <label>Enter your National ID</label>
+    <label>Enter your national ID</label>
     <div class="search-bar">
       <input type="text" id="lookupInput" placeholder="National ID" value="${escapeHtml(state.lookupInput)}">
       <button class="btn btn-primary" id="lookupBtn" style="flex:0 0 auto">Search</button>
     </div>
   </div>
+
   ${state.lookupResultId === 'notfound' ? `
-    <div class="panel"><div class="empty">No instructor found with this National ID. Double-check it or contact your team lead</div></div>
+    <div class="panel"><div class="empty">No instructor found with this national ID. Double-check it or contact your team lead</div></div>
   ` : ''}
+
   ${found ? renderInstructorNotes(found) : ''}
   `;
 }
@@ -1305,14 +1291,13 @@ function renderInstructorNotes(found){
     <div class="instructor-card">
       <div>
         <div class="name">${escapeHtml(found.name)}</div>
-        <div class="idline"><span>NID: ${escapeHtml(found.nid||'—')}</span></div>
+        <div class="nid">${escapeHtml(found.id)}${found.tutorId ? ' · ' + escapeHtml(found.tutorId) : ''}${found.grade ? ' · ' + escapeHtml(found.grade) : ''}${teamLabelFor(found.teamId) ? ' · ' + escapeHtml(teamLabelFor(found.teamId)) : ''}</div>
       </div>
       <div><span class="status-pill">${list.length} notes</span></div>
     </div>
-    ${renderRatingTrend(found.id)}
     <h2>Weekly notes and updates</h2>
     ${list.length === 0 ? '<div class="empty">No notes recorded for you yet</div>' :
-      list.map(n => renderTicket(n, null, null, 'instructor')).join('')}
+      list.map(n => renderTicket(n, null, null)).join('')}
   </div>`;
 }
 
@@ -1320,11 +1305,11 @@ function attachInstructorEvents(){
   const btn = document.getElementById('lookupBtn');
   const input = document.getElementById('lookupInput');
   const doLookup = ()=>{
-    const val = input.value.trim().replace(/[^\d]/g,'');
-    state.lookupInput = input.value.trim();
+    const val = input.value.trim();
+    state.lookupInput = val;
     if(!val){ state.lookupResultId = null; render(); return; }
-    const found = state.data.instructors.find(i=>i.nid === val);
-    state.lookupResultId = found ? found.nid : 'notfound';
+    const found = state.data.instructors.find(i=>i.id === val);
+    state.lookupResultId = found ? found.id : 'notfound';
     render();
   };
   if(btn) btn.onclick = doLookup;
